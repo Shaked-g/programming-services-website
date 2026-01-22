@@ -289,6 +289,29 @@
     "en": "English",
     "he": "עברית"
   },
+  "testimonials": {
+    "section": {
+      "badge": "Student Success Stories",
+      "title": "What our students say"
+    },
+    "items": [
+      {
+        "quote": "The programming help I received was exceptional. The expert explained complex algorithms in a way that finally made sense to me. My grades improved significantly!",
+        "author": "Rachel Cohen",
+        "role": "Computer Science Student"
+      },
+      {
+        "quote": "I was struggling with my psychology research paper. The academic assistance helped me understand the concepts and structure my paper properly. Highly recommended!",
+        "author": "David Levy",
+        "role": "Psychology Major"
+      },
+      {
+        "quote": "The social work assignment help was exactly what I needed. They helped me analyze real-world cases and apply theoretical frameworks correctly.",
+        "author": "Sarah Mizrahi",
+        "role": "Social Work Student"
+      }
+    ]
+  },
   "privacy": {
     "title": "Privacy Policy - Academic Assist",
     "description": "Our commitment to protecting your privacy and personal information. Learn how we collect, use, and safeguard your data."
