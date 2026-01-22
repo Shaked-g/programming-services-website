@@ -2,7 +2,14 @@ import { MongoClient, Db } from 'mongodb'
 
 // Default to local MongoDB if not specified
 const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017'
-const options = {}
+const options = {
+  ssl: true,
+  tls: true,
+  tlsAllowInvalidCertificates: false,
+  tlsAllowInvalidHostnames: false,
+  serverSelectionTimeoutMS: 5000, // Timeout after 5s instead of 30s
+  socketTimeoutMS: 45000, // Close sockets after 45s of inactivity
+}
 
 let client: MongoClient
 let clientPromise: Promise<MongoClient>
