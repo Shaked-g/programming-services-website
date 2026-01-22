@@ -73,7 +73,7 @@ export function Services() {
               </CardHeader>
               <CardContent>
                 <ul className="grid grid-cols-2 gap-2">
-                  {service.features.map((feature) => (
+                  {(service.features as string[]).map((feature: string) => (
                     <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
                       <div className="h-1.5 w-1.5 rounded-full bg-accent" />
                       {feature}

@@ -74,7 +74,7 @@ export function Expertise() {
               <h3 className="text-lg font-semibold mb-2">{area.title}</h3>
               <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{area.description}</p>
               <div className="flex flex-wrap gap-2">
-                {area.technologies.map((tech) => (
+                {(area.technologies as string[]).map((tech: string) => (
                   <span
                     key={tech}
                     className="px-2.5 py-1 text-xs font-medium rounded-full bg-secondary text-secondary-foreground"

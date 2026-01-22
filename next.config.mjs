@@ -2,11 +2,14 @@ import withNextIntl from 'next-intl/plugin'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   images: {
-    unoptimized: true,
+    // Allow images from any domain for flexibility
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
 }
 
