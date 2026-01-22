@@ -1,35 +1,35 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getDatabase } from '@/lib/mongodb'
-import { sendSlackNotification, formatProjectRequestMessage } from '@/lib/slack'
-import type { ProjectRequestSubmission } from '@/lib/types'
+import { sendSlackNotification, formatAssignmentRequestMessage } from '@/lib/slack'
+import type { AssignmentRequestSubmission } from '@/lib/types'
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
     const {
-      serviceType,
-      projectTitle,
-      projectDescription,
-      currentState,
-      desiredOutcome,
-      hasExistingCode,
-      repoAccess,
-      techExpertise,
-      currentStack,
-      timeline,
-      budget,
-      startDate,
+      assignmentType,
+      assignmentTitle,
+      assignmentDescription,
+      subjectArea,
+      academicLevel,
+      specificRequirements,
+      hasExistingWork,
+      citationStyle,
+      academicExpertise,
+      requiredSources,
+      deadline,
+      urgencyLevel,
+      submissionDate,
       name,
       email,
-      company,
-      role,
+      university,
       phone,
       preferredContact,
       additionalNotes,
     } = body
 
     // Basic validation
-    if (!serviceType || !projectTitle || !projectDescription || !name || !email) {
+    if (!assignmentType || !assignmentTitle || !assignmentDescription || !name || !email) {
       return NextResponse.json(
         { error: 'Required fields are missing' },
         { status: 400 }
@@ -46,23 +46,23 @@ export async function POST(request: NextRequest) {
     }
 
     // Create submission document
-    const submission: ProjectRequestSubmission = {
-      serviceType,
-      projectTitle,
-      projectDescription,
-      currentState: currentState || undefined,
-      desiredOutcome: desiredOutcome || undefined,
-      hasExistingCode: hasExistingCode || undefined,
-      repoAccess: repoAccess || undefined,
-      techExpertise: techExpertise || [],
-      currentStack: currentStack || {},
-      timeline,
-      budget,
-      startDate: startDate || undefined,
+    const submission: AssignmentRequestSubmission = {
+      assignmentType,
+      assignmentTitle,
+      assignmentDescription,
+      subjectArea: subjectArea || 'Not specified',
+      academicLevel,
+      specificRequirements: specificRequirements || undefined,
+      hasExistingWork: hasExistingWork || undefined,
+      citationStyle: citationStyle || 'Not specified',
+      academicExpertise: academicExpertise || [],
+      requiredSources: requiredSources || {},
+      deadline,
+      urgencyLevel: urgencyLevel || 'standard',
+      submissionDate: submissionDate || undefined,
       name,
       email,
-      company: company || undefined,
-      role: role || undefined,
+      university: university || undefined,
       phone: phone || undefined,
       preferredContact: preferredContact || 'email',
       additionalNotes: additionalNotes || undefined,
@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
     // Save to MongoDB
     try {
       const db = await getDatabase()
-      const collection = db.collection<ProjectRequestSubmission>('project-requests')
+      const collection = db.collection<AssignmentRequestSubmission>('assignment-requests')
       const result = await collection.insertOne(submission)
       console.log('✅ Project request saved to MongoDB:', result.insertedId)
     } catch (dbError) {
@@ -82,17 +82,18 @@ export async function POST(request: NextRequest) {
 
     // Send Slack notification
     try {
-      const slackMessage = formatProjectRequestMessage({
-        serviceType,
-        projectTitle,
-        projectDescription,
+      const slackMessage = formatAssignmentRequestMessage({
+        assignmentType,
+        assignmentTitle,
+        assignmentDescription,
+        subjectArea,
+        academicLevel,
         name,
         email,
-        company,
-        timeline,
-        budget,
-        techExpertise: techExpertise || [],
-        currentStack: currentStack || {},
+        university,
+        deadline,
+        academicExpertise: academicExpertise || [],
+        requiredSources: requiredSources || {},
       })
       await sendSlackNotification(slackMessage)
     } catch (slackError) {
@@ -101,9 +102,9 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { 
-        success: true, 
-        message: 'Your project request has been submitted! We\'ll review it and get back to you within 24 hours with a tailored proposal.' 
+      {
+        success: true,
+        message: 'Your assignment request has been submitted! We\'ll match you with an academic expert and get back to you within 24 hours.'
       },
       { status: 200 }
     )

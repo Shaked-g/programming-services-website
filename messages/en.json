@@ -4,143 +4,143 @@
     "expertise": "Expertise",
     "process": "Process",
     "about": "About",
-    "startProject": "Start a Project"
+    "startProject": "Get Assignment Help"
   },
   "hero": {
-    "badge": "Expert Development Services",
+    "badge": "Academic Assignment Experts",
     "title": {
-      "line1": "We build software",
-      "line2": "that scales with you"
+      "line1": "We help students",
+      "line2": "excel in their studies"
     },
-    "subtitle": "From fixing legacy codebases to scaling demos into production-ready services. Get expert consulting or full development with specialists in AI, full-stack, and cloud.",
+    "subtitle": "Professional assistance with programming assignments, humanities research, social work projects, and multi-disciplinary academic work. Get expert help with psychology, education, philosophy, and more.",
     "cta": {
-      "primary": "Start Your Project",
+      "primary": "Get Assignment Help",
       "secondary": "Explore Services"
     },
     "stats": {
       "projects": {
-        "value": "150+",
-        "label": "Projects Delivered"
+        "value": "500+",
+        "label": "Assignments Completed"
       },
       "satisfaction": {
-        "value": "98%",
-        "label": "Client Satisfaction"
+        "value": "97%",
+        "label": "Student Satisfaction"
       },
       "clients": {
-        "value": "50+",
-        "label": "Enterprise Clients"
+        "value": "200+",
+        "label": "Students Helped"
       },
       "support": {
         "value": "24/7",
-        "label": "Support Available"
+        "label": "Academic Support"
       }
     }
   },
   "services": {
     "section": {
-      "badge": "What We Do",
-      "title": "Services tailored to your needs",
-      "subtitle": "Whether you need a quick fix or a complete solution, we have the expertise to deliver results that matter."
+      "badge": "Academic Support",
+      "title": "Comprehensive assignment help across disciplines",
+      "subtitle": "From programming projects to humanities research, social work assignments, and multi-disciplinary studies - we provide expert academic assistance."
     },
     "items": {
-      "codebase": {
-        "title": "Codebase Fixes & Optimization",
-        "description": "Legacy code holding you back? We diagnose, refactor, and optimize existing codebases to improve performance, maintainability, and scalability.",
-        "features": ["Technical debt reduction", "Performance optimization", "Security audits", "Code refactoring"],
+      "programming": {
+        "title": "Programming & Computer Science",
+        "description": "Expert help with coding assignments, algorithms, data structures, software development projects, and computer science coursework.",
+        "features": ["Code debugging & optimization", "Algorithm implementation", "Software design", "Project development"],
         "badge": "Most Popular"
       },
-      "demo": {
-        "title": "Demo to Production",
-        "description": "Transform your proof-of-concept into a production-ready service. We handle infrastructure, scaling, security, and deployment pipelines.",
-        "features": ["Infrastructure setup", "CI/CD pipelines", "Load testing", "Production deployment"]
+      "humanities": {
+        "title": "Humanities & Social Sciences",
+        "description": "Professional assistance with psychology, education, philosophy, sociology, history, and other humanities subjects.",
+        "features": ["Research papers", "Literature analysis", "Critical essays", "Case studies"]
       },
-      "consulting": {
-        "title": "Technical Consulting",
-        "description": "Get expert guidance on architecture decisions, technology choices, and development strategies without committing to full development.",
-        "features": ["Architecture review", "Tech stack analysis", "Roadmap planning", "Team training"]
+      "social_work": {
+        "title": "Social Work & Counseling",
+        "description": "Specialized help with social work assignments, counseling theories, case management, and community practice projects.",
+        "features": ["Case studies", "Intervention planning", "Policy analysis", "Ethical frameworks"]
       },
-      "development": {
-        "title": "Full Development",
-        "description": "End-to-end software development from concept to deployment. We handle everything so you can focus on your business.",
-        "features": ["Custom applications", "API development", "Integration services", "Ongoing maintenance"]
+      "multidisciplinary": {
+        "title": "Multi-Disciplinary Projects",
+        "description": "Comprehensive support for complex assignments that span multiple disciplines and require integrated approaches.",
+        "features": ["Interdisciplinary research", "Integrated analysis", "Cross-field connections", "Holistic solutions"]
       }
     },
     "learnMore": "Learn more"
   },
   "expertise": {
     "section": {
-      "badge": "Our Expertise",
-      "title": "Deep technical knowledge across domains",
-      "subtitle": "Our team brings decades of combined experience across cutting-edge technologies."
+      "badge": "Academic Expertise",
+      "title": "Deep knowledge across academic disciplines",
+      "subtitle": "Our team of academic professionals and subject matter experts provides comprehensive support across multiple fields."
     },
     "areas": {
-      "ai": {
-        "title": "Artificial Intelligence",
-        "description": "LLM integration, custom ML models, AI-powered features, and intelligent automation solutions.",
-        "technologies": ["OpenAI", "LangChain", "TensorFlow", "PyTorch"]
+      "programming": {
+        "title": "Programming & CS",
+        "description": "Expert assistance with algorithms, data structures, software engineering, web development, and computer science principles.",
+        "technologies": ["Python", "JavaScript", "Java", "C++", "Algorithms", "Data Structures"]
       },
-      "fullstack": {
-        "title": "Full-Stack Development",
-        "description": "Modern web applications with React, Next.js, Node.js, and scalable backend architectures.",
-        "technologies": ["React", "Next.js", "Node.js", "TypeScript"]
+      "psychology": {
+        "title": "Psychology",
+        "description": "Professional help with psychological theories, research methods, clinical psychology, developmental psychology, and behavioral analysis.",
+        "technologies": ["APA Style", "Research Design", "Statistical Analysis", "Case Studies"]
       },
-      "cloud": {
-        "title": "Cloud & DevOps",
-        "description": "Cloud-native architectures, containerization, serverless functions, and infrastructure automation.",
-        "technologies": ["AWS", "GCP", "Docker", "Kubernetes"]
+      "education": {
+        "title": "Education",
+        "description": "Specialized support for educational theory, curriculum development, pedagogy, assessment methods, and educational research.",
+        "technologies": ["Curriculum Design", "Assessment", "Teaching Methods", "Educational Research"]
       },
-      "data": {
-        "title": "Data Engineering",
-        "description": "Data pipelines, real-time analytics, database optimization, and data warehouse solutions.",
-        "technologies": ["PostgreSQL", "Redis", "Kafka", "Spark"]
+      "philosophy": {
+        "title": "Philosophy",
+        "description": "Expert guidance in philosophical analysis, critical thinking, ethics, metaphysics, epistemology, and philosophical writing.",
+        "technologies": ["Critical Analysis", "Ethical Reasoning", "Argumentation", "Philosophical Methods"]
       },
-      "security": {
-        "title": "Security & Compliance",
-        "description": "Security audits, penetration testing, compliance implementation, and secure coding practices.",
-        "technologies": ["OAuth", "SOC2", "GDPR", "HIPAA"]
+      "social_work": {
+        "title": "Social Work",
+        "description": "Professional assistance with social work practice, case management, community development, and social welfare policies.",
+        "technologies": ["Case Management", "Intervention", "Policy Analysis", "Ethical Practice"]
       },
-      "performance": {
-        "title": "Performance Optimization",
-        "description": "Application profiling, bottleneck identification, caching strategies, and scalability improvements.",
-        "technologies": ["Profiling", "CDN", "Caching", "Load Testing"]
+      "multidisciplinary": {
+        "title": "Multi-Disciplinary",
+        "description": "Integrated approaches for complex projects that combine multiple academic disciplines and require interdisciplinary analysis.",
+        "technologies": ["Systems Thinking", "Interdisciplinary Research", "Integrated Analysis", "Holistic Approaches"]
       }
     }
   },
   "process": {
     "section": {
-      "badge": "How We Work",
-      "title": "A streamlined process for success",
-      "subtitle": "Our battle-tested methodology ensures every project is delivered on time and exceeds expectations."
+      "badge": "How We Help",
+      "title": "A proven academic support process",
+      "subtitle": "Our structured approach ensures you get high-quality, plagiarism-free work that meets academic standards and helps you learn."
     },
     "steps": {
-      "discovery": {
-        "title": "Discovery Call",
-        "description": "We start with a deep dive into your project requirements, challenges, and goals. No technical jargon—just a conversation about what you need."
+      "consultation": {
+        "title": "Assignment Consultation",
+        "description": "We discuss your assignment requirements, academic level, deadline, and specific learning objectives. Clear communication ensures we understand exactly what you need."
       },
-      "assessment": {
-        "title": "Technical Assessment",
-        "description": "Our experts analyze your existing systems, identify opportunities, and create a detailed proposal with clear deliverables and timeline."
+      "planning": {
+        "title": "Research & Planning",
+        "description": "Our experts analyze the assignment, gather relevant sources, and create a detailed outline. We ensure the work meets academic standards and addresses all requirements."
       },
       "development": {
-        "title": "Development Sprint",
-        "description": "We work in focused sprints with regular updates. You'll have full visibility into progress with demos and feedback sessions throughout."
+        "title": "Content Development",
+        "description": "We write original, well-researched content with proper citations and formatting. Regular check-ins allow you to provide feedback and ensure the work aligns with your understanding."
       },
-      "deployment": {
-        "title": "Deployment & Launch",
-        "description": "Rigorous testing, documentation, and a smooth handoff. We ensure your solution is production-ready and your team is equipped to maintain it."
+      "delivery": {
+        "title": "Review & Delivery",
+        "description": "Final review for quality, originality, and academic integrity. We provide clear explanations and ensure you understand the material for future assignments."
       }
     }
   },
   "contact": {
     "section": {
-      "badge": "Get In Touch",
-      "title": "Ready to start your project?",
-      "subtitle": "Tell us about your needs and we'll get back to you within 24 hours with a tailored proposal."
+      "badge": "Get Academic Help",
+      "title": "Need help with your assignment?",
+      "subtitle": "Tell us about your assignment and we'll get back to you within 24 hours with expert assistance."
     },
     "info": {
       "email": {
         "title": "Email Us",
-        "value": "hello@codecraftlabs.dev"
+        "value": "help@academicassist.dev"
       },
       "phone": {
         "title": "Call Us",
@@ -148,75 +148,126 @@
       },
       "location": {
         "title": "Based In",
-        "value": "Austin, Texas USA",
-        "additional": "Working globally"
+        "value": "Remote Academic Support",
+        "additional": "Available worldwide"
       }
     },
     "process": {
       "title": "What happens next?",
       "steps": [
-        "We review your requirements",
-        "Schedule a discovery call",
-        "Provide a detailed proposal"
+        "We review your assignment details",
+        "Match you with subject expert",
+        "Provide timeline and pricing"
       ]
     },
     "form": {
-      "title": "Send us a message",
-      "description": "Fill out the form below and we'll get back to you shortly.",
+      "title": "Get assignment help",
+      "description": "Fill out the form below and we'll connect you with the right academic expert.",
       "fields": {
-        "name": "Name",
-        "email": "Email",
-        "company": "Company",
-        "service": "Service Interested In",
-        "message": "Tell us about your project"
+        "name": "Full Name",
+        "email": "Email Address",
+        "subject": "Academic Subject",
+        "service": "Type of Assignment",
+        "deadline": "Deadline",
+        "academic_level": "Academic Level",
+        "message": "Assignment Details"
       },
       "placeholders": {
-        "name": "John Doe",
-        "email": "john@company.com",
-        "company": "Your Company",
-        "message": "Describe your project, timeline, and any specific requirements..."
+        "name": "Your Full Name",
+        "email": "your.email@university.edu",
+        "subject": "e.g., Psychology, Computer Science, Philosophy",
+        "deadline": "When is the assignment due?",
+        "academic_level": "Undergraduate, Graduate, etc.",
+        "message": "Describe your assignment, requirements, and any specific instructions..."
       },
       "services": {
-        "placeholder": "Select a service",
-        "codebase": "Codebase Fixes & Optimization",
-        "demo": "Demo to Production",
-        "consulting": "Technical Consulting",
-        "development": "Full Development"
+        "placeholder": "Select assignment type",
+        "programming": "Programming Assignment",
+        "humanities": "Humanities Research/Essay",
+        "social_work": "Social Work Project",
+        "multidisciplinary": "Multi-Disciplinary Project"
       },
-      "submit": "Send Message",
-      "sending": "Sending...",
-      "sent": "Message Sent!"
+      "submit": "Get Help Now",
+      "sending": "Submitting...",
+      "sent": "Request Submitted!"
     },
     "success": {
-      "title": "Message sent!",
-      "description": "We'll get back to you within 24 hours."
+      "title": "Request submitted!",
+      "description": "We'll match you with an expert and get back to you within 24 hours."
+    }
+  },
+  "request": {
+    "badge": "Assignment Help Request",
+    "title": "Tell us about your assignment",
+    "subtitle": "Complete this form and we'll connect you with an academic expert within 24 hours. The more detail you provide, the better we can match you with the right specialist.",
+    "steps": {
+      "assignmentType": "Assignment Type",
+      "assignmentDetails": "Assignment Details",
+      "academicRequirements": "Academic Requirements",
+      "timelineLevel": "Timeline & Level",
+      "contactInfo": "Contact Info"
+    },
+    "assignmentType": {
+      "question": "What type of assignment help do you need?",
+      "description": "Select the option that best describes your assignment"
+    },
+    "services": {
+      "programming": {
+        "title": "Programming & Computer Science",
+        "description": "Help with coding assignments, algorithms, data structures, software development projects",
+        "features": ["Algorithm implementation", "Software design", "Debugging help", "Project development"]
+      },
+      "humanities": {
+        "title": "Humanities & Social Sciences",
+        "description": "Assistance with psychology, education, philosophy, sociology, history, and literature",
+        "features": ["Research papers", "Critical essays", "Literature analysis", "Case studies"]
+      },
+      "social_work": {
+        "title": "Social Work & Counseling",
+        "description": "Help with social work assignments, counseling theories, case management, and practice projects",
+        "features": ["Case studies", "Intervention planning", "Policy analysis", "Ethical frameworks"]
+      },
+      "multidisciplinary": {
+        "title": "Multi-Disciplinary Projects",
+        "description": "Comprehensive support for complex assignments spanning multiple academic disciplines",
+        "features": ["Interdisciplinary research", "Integrated analysis", "Cross-field connections", "Holistic approaches"]
+      }
+    },
+    "navigation": {
+      "previous": "Previous",
+      "next": "Next",
+      "submit": "Get Help Now"
+    },
+    "security": {
+      "message": "Your information is secure and will only be used to match you with academic experts.",
+      "responseTime": "Average response time: less than 24 hours"
     }
   },
   "footer": {
-    "description": "Premium contract programming services. We help companies build, fix, and scale software that matters.",
+    "description": "Professional academic assignment assistance. We help students excel in programming, humanities, social sciences, and multi-disciplinary studies.",
     "sections": {
-      "services": "Services",
-      "expertise": "Expertise",
-      "company": "Company"
+      "services": "Academic Help",
+      "expertise": "Subjects",
+      "company": "Support"
     },
     "links": {
       "services": {
-        "codebase": "Codebase Fixes",
-        "demo": "Demo to Production",
-        "consulting": "Consulting",
-        "development": "Full Development"
+        "programming": "Programming Help",
+        "humanities": "Humanities Support",
+        "social_work": "Social Work Help",
+        "multidisciplinary": "Multi-Disciplinary"
       },
       "expertise": {
-        "ai": "AI Development",
-        "fullstack": "Full-Stack",
-        "cloud": "Cloud & DevOps",
-        "data": "Data Engineering"
+        "programming": "Computer Science",
+        "psychology": "Psychology",
+        "education": "Education",
+        "philosophy": "Philosophy"
       },
       "company": {
         "about": "About Us",
-        "process": "Process",
-        "contact": "Contact",
-        "careers": "Careers"
+        "process": "How We Help",
+        "contact": "Contact Us",
+        "faq": "FAQ"
       }
     },
     "social": {
@@ -225,7 +276,7 @@
       "linkedin": "LinkedIn"
     },
     "bottom": {
-      "copyright": "© {year} CodeCraft Labs. All rights reserved.",
+      "copyright": "© {year} Academic Assist Pro. All rights reserved.",
       "privacy": "Privacy Policy",
       "terms": "Terms of Service"
     }

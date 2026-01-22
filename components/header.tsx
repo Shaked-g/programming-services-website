@@ -56,7 +56,7 @@ export function Header() {
               <Code2 className="h-5 w-5" />
             </div>
             <span className="text-xl font-semibold tracking-tight">
-              CodeCraft<span className="text-accent">Labs</span>
+              Academic<span className="text-accent">Assist</span>
             </span>
           </Link>
 

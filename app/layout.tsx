@@ -16,16 +16,16 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] })
 const notoSansHebrew = Noto_Sans_Hebrew({ subsets: ["hebrew"] })
 
 export const metadata: Metadata = {
-  title: "CodeCraft Labs | Expert Software Development Services",
+  title: "Academic Assist | Professional Assignment Help Services",
   description:
-    "Premium contract programming services. From codebase fixes to full-stack development, AI integration, and cloud solutions. Transform your ideas into production-ready software.",
+    "Expert academic assistance across disciplines. Programming assignments, humanities research, social work projects, and multi-disciplinary studies. Get help from subject matter experts.",
   keywords: [
-    "software development",
-    "AI development",
-    "cloud solutions",
-    "full-stack",
-    "consulting",
-    "contract programming",
+    "assignment help",
+    "academic assistance",
+    "programming help",
+    "research papers",
+    "homework help",
+    "tutoring",
   ],
     generator: 'v0.app'
 }

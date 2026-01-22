@@ -1,6 +1,6 @@
 "use client"
 
-import { Brain, Layers, Cloud, Database, Shield, Zap } from "lucide-react"
+import { Code2, Brain, Layers, BookOpen, Database, MessageSquare, Zap } from "lucide-react"
 import { useTranslations } from "next-intl"
 
 export function Expertise() {
@@ -8,40 +8,40 @@ export function Expertise() {
 
   const expertiseAreas = [
     {
+      icon: Code2,
+      title: t('areas.programming.title'),
+      description: t('areas.programming.description'),
+      technologies: t.raw('areas.programming.technologies'),
+    },
+    {
       icon: Brain,
-      title: t('areas.ai.title'),
-      description: t('areas.ai.description'),
-      technologies: t.raw('areas.ai.technologies'),
+      title: t('areas.psychology.title'),
+      description: t('areas.psychology.description'),
+      technologies: t.raw('areas.psychology.technologies'),
     },
     {
       icon: Layers,
-      title: t('areas.fullstack.title'),
-      description: t('areas.fullstack.description'),
-      technologies: t.raw('areas.fullstack.technologies'),
+      title: t('areas.education.title'),
+      description: t('areas.education.description'),
+      technologies: t.raw('areas.education.technologies'),
     },
     {
-      icon: Cloud,
-      title: t('areas.cloud.title'),
-      description: t('areas.cloud.description'),
-      technologies: t.raw('areas.cloud.technologies'),
+      icon: BookOpen,
+      title: t('areas.philosophy.title'),
+      description: t('areas.philosophy.description'),
+      technologies: t.raw('areas.philosophy.technologies'),
+    },
+    {
+      icon: MessageSquare,
+      title: t('areas.social_work.title'),
+      description: t('areas.social_work.description'),
+      technologies: t.raw('areas.social_work.technologies'),
     },
     {
       icon: Database,
-      title: t('areas.data.title'),
-      description: t('areas.data.description'),
-      technologies: t.raw('areas.data.technologies'),
-    },
-    {
-      icon: Shield,
-      title: t('areas.security.title'),
-      description: t('areas.security.description'),
-      technologies: t.raw('areas.security.technologies'),
-    },
-    {
-      icon: Zap,
-      title: t('areas.performance.title'),
-      description: t('areas.performance.description'),
-      technologies: t.raw('areas.performance.technologies'),
+      title: t('areas.multidisciplinary.title'),
+      description: t('areas.multidisciplinary.description'),
+      technologies: t.raw('areas.multidisciplinary.technologies'),
     },
   ]
   return (

@@ -3,8 +3,8 @@ import { Footer } from "@/components/footer"
 import { ProjectRequestForm } from "@/components/project-request-form"
 
 export const metadata = {
-  title: "Submit a Project Request | CodeCraft Labs",
-  description: "Tell us about your project and get a tailored proposal within 24 hours.",
+  title: "Get Assignment Help | Academic Assist Pro",
+  description: "Tell us about your assignment and get matched with an academic expert within 24 hours.",
 }
 
 export default function RequestPage() {

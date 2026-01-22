@@ -11,29 +11,29 @@ export function Services() {
 
   const services = [
     {
-      icon: Wrench,
-      title: t('items.codebase.title'),
-      description: t('items.codebase.description'),
-      features: t.raw('items.codebase.features'),
-      badge: t('items.codebase.badge'),
-    },
-    {
-      icon: Rocket,
-      title: t('items.demo.title'),
-      description: t('items.demo.description'),
-      features: t.raw('items.demo.features'),
+      icon: Code2,
+      title: t('items.programming.title'),
+      description: t('items.programming.description'),
+      features: t.raw('items.programming.features'),
+      badge: t('items.programming.badge'),
     },
     {
       icon: MessageSquare,
-      title: t('items.consulting.title'),
-      description: t('items.consulting.description'),
-      features: t.raw('items.consulting.features'),
+      title: t('items.humanities.title'),
+      description: t('items.humanities.description'),
+      features: t.raw('items.humanities.features'),
     },
     {
-      icon: Code2,
-      title: t('items.development.title'),
-      description: t('items.development.description'),
-      features: t.raw('items.development.features'),
+      icon: Wrench,
+      title: t('items.social_work.title'),
+      description: t('items.social_work.description'),
+      features: t.raw('items.social_work.features'),
+    },
+    {
+      icon: Rocket,
+      title: t('items.multidisciplinary.title'),
+      description: t('items.multidisciplinary.description'),
+      features: t.raw('items.multidisciplinary.features'),
     },
   ]
   return (

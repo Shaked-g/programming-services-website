@@ -19,8 +19,10 @@ export function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    company: "",
+    subject: "",
     service: "",
+    deadline: "",
+    academicLevel: "",
     message: "",
   })
 
@@ -164,31 +166,60 @@ export function Contact() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="company">{t('form.fields.company')}</Label>
+                  <Label htmlFor="subject">{t('form.fields.subject')}</Label>
                   <Input
-                    id="company"
-                    placeholder={t('form.placeholders.company')}
-                    value={formData.company}
-                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                    id="subject"
+                    placeholder={t('form.placeholders.subject')}
+                    value={formData.subject}
+                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     disabled={isSubmitting}
                   />
                 </div>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="service">{t('form.fields.service')}</Label>
+                    <select
+                      id="service"
+                      className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm"
+                      required
+                      value={formData.service}
+                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      disabled={isSubmitting}
+                    >
+                      <option value="">{t('form.services.placeholder')}</option>
+                      <option value="programming">{t('form.services.programming')}</option>
+                      <option value="humanities">{t('form.services.humanities')}</option>
+                      <option value="social_work">{t('form.services.social_work')}</option>
+                      <option value="multidisciplinary">{t('form.services.multidisciplinary')}</option>
+                    </select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="academicLevel">{t('form.fields.academic_level')}</Label>
+                    <select
+                      id="academicLevel"
+                      className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm"
+                      value={formData.academicLevel}
+                      onChange={(e) => setFormData({ ...formData, academicLevel: e.target.value })}
+                      disabled={isSubmitting}
+                    >
+                      <option value="">Select level</option>
+                      <option value="high-school">High School</option>
+                      <option value="undergraduate">Undergraduate</option>
+                      <option value="graduate">Graduate</option>
+                      <option value="phd">PhD</option>
+                      <option value="professional">Professional</option>
+                    </select>
+                  </div>
+                </div>
                 <div className="space-y-2">
-                  <Label htmlFor="service">{t('form.fields.service')}</Label>
-                  <select
-                    id="service"
-                    className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm"
-                    required
-                    value={formData.service}
-                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                  <Label htmlFor="deadline">{t('form.fields.deadline')}</Label>
+                  <Input
+                    id="deadline"
+                    placeholder={t('form.placeholders.deadline')}
+                    value={formData.deadline}
+                    onChange={(e) => setFormData({ ...formData, deadline: e.target.value })}
                     disabled={isSubmitting}
-                  >
-                    <option value="">{t('form.services.placeholder')}</option>
-                    <option value="codebase">{t('form.services.codebase')}</option>
-                    <option value="demo">{t('form.services.demo')}</option>
-                    <option value="consulting">{t('form.services.consulting')}</option>
-                    <option value="development">{t('form.services.development')}</option>
-                  </select>
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="message">{t('form.fields.message')}</Label>

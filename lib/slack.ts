@@ -32,8 +32,10 @@ export async function sendSlackNotification(message: string): Promise<void> {
 export function formatContactMessage(data: {
   name: string
   email: string
-  company?: string
+  subject: string
   service: string
+  deadline: string
+  academicLevel: string
   message: string
 }): string {
   const timestamp = new Date().toLocaleString('en-US', {
@@ -42,12 +44,14 @@ export function formatContactMessage(data: {
     timeStyle: 'short',
   })
 
-  return `📧 *New Contact Form Submission*
+  return `📧 *New Academic Contact Inquiry*
 
 *Name:* ${data.name}
 *Email:* ${data.email}
-${data.company ? `*Company:* ${data.company}` : ''}
+*Subject:* ${data.subject}
 *Service Interested In:* ${data.service}
+*Deadline:* ${data.deadline}
+*Academic Level:* ${data.academicLevel}
 
 *Message:*
 ${data.message}
@@ -55,17 +59,18 @@ ${data.message}
 _Submitted: ${timestamp}_`
 }
 
-export function formatProjectRequestMessage(data: {
-  serviceType: string
-  projectTitle: string
-  projectDescription: string
+export function formatAssignmentRequestMessage(data: {
+  assignmentType: string
+  assignmentTitle: string
+  assignmentDescription: string
+  subjectArea: string
+  academicLevel: string
   name: string
   email: string
-  company?: string
-  timeline: string
-  budget: string
-  techExpertise: string[]
-  currentStack: Record<string, string[]>
+  university?: string
+  deadline: string
+  academicExpertise: string[]
+  requiredSources: Record<string, string[]>
 }): string {
   const timestamp = new Date().toLocaleString('en-US', {
     timeZone: 'America/Los_Angeles',
@@ -73,50 +78,48 @@ export function formatProjectRequestMessage(data: {
     timeStyle: 'short',
   })
 
-  const stackSummary = Object.entries(data.currentStack)
-    .filter(([_, techs]) => techs.length > 0)
-    .map(([category, techs]) => `  • ${category}: ${techs.join(', ')}`)
+  const sourcesSummary = Object.entries(data.requiredSources)
+    .filter(([_, sources]) => sources.length > 0)
+    .map(([category, sources]) => `  • ${category}: ${sources.join(', ')}`)
     .join('\n')
 
-  // Map service types to readable names
-  const serviceTypeMap: Record<string, string> = {
-    'codebase-fix': 'Codebase Fixes & Optimization',
-    'demo-to-production': 'Demo to Production',
-    'consulting': 'Technical Consulting',
-    'full-development': 'Full Development',
+  // Map assignment types to readable names
+  const assignmentTypeMap: Record<string, string> = {
+    'programming': 'Programming & Computer Science',
+    'humanities': 'Humanities & Social Sciences',
+    'social-work': 'Social Work & Counseling',
+    'multidisciplinary': 'Multi-Disciplinary Projects',
   }
 
-  // Map budget IDs to readable labels
-  const budgetMap: Record<string, string> = {
-    'under-1k': 'Under $1,000',
-    '1k-5k': '$1,000 - $5,000',
-    'under-5k': 'Under $5,000',
-    '5k-15k': '$5,000 - $15,000',
-    '15k-50k': '$15,000 - $50,000',
-    '50k-100k': '$50,000 - $100,000',
-    '100k-plus': '$100,000+',
-    'discuss': "Let's Discuss",
+  // Map academic levels to readable names
+  const academicLevelMap: Record<string, string> = {
+    'high-school': 'High School',
+    'undergraduate': 'Undergraduate',
+    'graduate': 'Graduate (Master\'s)',
+    'phd': 'PhD',
+    'professional': 'Professional Certification',
   }
 
-  const readableServiceType = serviceTypeMap[data.serviceType] || data.serviceType
-  const readableBudget = budgetMap[data.budget] || data.budget
+  const readableAssignmentType = assignmentTypeMap[data.assignmentType] || data.assignmentType
+  const readableAcademicLevel = academicLevelMap[data.academicLevel] || data.academicLevel
 
-  return `🚀 *New Project Request*
+  return `📚 *New Assignment Request*
 
-*Service Type:* ${readableServiceType}
-*Project Title:* ${data.projectTitle}
-*Client:* ${data.name} (${data.email})
-${data.company ? `*Company:* ${data.company}` : ''}
-*Timeline:* ${data.timeline}
-*Budget:* ${readableBudget}
+*Assignment Type:* ${readableAssignmentType}
+*Assignment Title:* ${data.assignmentTitle}
+*Student:* ${data.name} (${data.email})
+${data.university ? `*University:* ${data.university}` : ''}
+*Subject Area:* ${data.subjectArea}
+*Academic Level:* ${readableAcademicLevel}
+*Deadline:* ${data.deadline}
 
-*Project Description:*
-${data.projectDescription}
+*Assignment Description:*
+${data.assignmentDescription}
 
-*Tech Expertise Needed:*
-${data.techExpertise.length > 0 ? data.techExpertise.map(t => `  • ${t}`).join('\n') : '  • None specified'}
+*Academic Expertise Needed:*
+${data.academicExpertise.length > 0 ? data.academicExpertise.map(expertise => `  • ${expertise}`).join('\n') : '  • None specified'}
 
-${stackSummary ? `*Current/Preferred Stack:*\n${stackSummary}` : ''}
+${sourcesSummary ? `*Required Sources & Format:*\n${sourcesSummary}` : ''}
 
 _Submitted: ${timestamp}_`
 }

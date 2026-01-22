@@ -6,7 +6,7 @@ import type { ContactSubmission } from '@/lib/types'
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, email, company, service, message } = body
+    const { name, email, subject, service, deadline, academicLevel, message } = body
 
     // Basic validation
     if (!name || !email || !message) {
@@ -29,8 +29,10 @@ export async function POST(request: NextRequest) {
     const submission: ContactSubmission = {
       name,
       email,
-      company: company || undefined,
+      subject: subject || 'Not specified',
       service,
+      deadline: deadline || 'Not specified',
+      academicLevel: academicLevel || 'Not specified',
       message,
       submittedAt: new Date(),
     }
@@ -51,8 +53,10 @@ export async function POST(request: NextRequest) {
       const slackMessage = formatContactMessage({
         name,
         email,
-        company,
+        subject,
         service,
+        deadline,
+        academicLevel,
         message,
       })
       await sendSlackNotification(slackMessage)

@@ -9,22 +9,22 @@ export function Footer() {
 
   const footerLinks = {
     services: [
-      { label: t('links.services.codebase'), href: "#services" },
-      { label: t('links.services.demo'), href: "#services" },
-      { label: t('links.services.consulting'), href: "#services" },
-      { label: t('links.services.development'), href: "#services" },
+      { label: t('links.services.programming'), href: "#services" },
+      { label: t('links.services.humanities'), href: "#services" },
+      { label: t('links.services.social_work'), href: "#services" },
+      { label: t('links.services.multidisciplinary'), href: "#services" },
     ],
     expertise: [
-      { label: t('links.expertise.ai'), href: "#expertise" },
-      { label: t('links.expertise.fullstack'), href: "#expertise" },
-      { label: t('links.expertise.cloud'), href: "#expertise" },
-      { label: t('links.expertise.data'), href: "#expertise" },
+      { label: t('links.expertise.programming'), href: "#expertise" },
+      { label: t('links.expertise.psychology'), href: "#expertise" },
+      { label: t('links.expertise.education'), href: "#expertise" },
+      { label: t('links.expertise.philosophy'), href: "#expertise" },
     ],
     company: [
       { label: t('links.company.about'), href: "#about" },
       { label: t('links.company.process'), href: "#process" },
       { label: t('links.company.contact'), href: "#contact" },
-      { label: t('links.company.careers'), href: "#" },
+      { label: t('links.company.faq'), href: "#" },
     ],
   }
 
@@ -39,7 +39,7 @@ export function Footer() {
                 <Code2 className="h-5 w-5" />
               </div>
               <span className="text-xl font-semibold tracking-tight">
-                CodeCraft<span className="text-accent">Labs</span>
+                Academic<span className="text-accent">Assist</span>
               </span>
             </Link>
             <p className="mt-4 text-muted-foreground text-sm max-w-sm leading-relaxed">

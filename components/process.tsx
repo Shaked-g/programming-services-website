@@ -1,6 +1,6 @@
 "use client"
 
-import { MessageSquare, Search, Code, Rocket } from "lucide-react"
+import { MessageSquare, Search, BookOpen, CheckCircle } from "lucide-react"
 import { useTranslations } from "next-intl"
 
 export function Process() {
@@ -10,26 +10,26 @@ export function Process() {
     {
       icon: MessageSquare,
       number: "01",
-      title: t('steps.discovery.title'),
-      description: t('steps.discovery.description'),
+      title: t('steps.consultation.title'),
+      description: t('steps.consultation.description'),
     },
     {
       icon: Search,
       number: "02",
-      title: t('steps.assessment.title'),
-      description: t('steps.assessment.description'),
+      title: t('steps.planning.title'),
+      description: t('steps.planning.description'),
     },
     {
-      icon: Code,
+      icon: BookOpen,
       number: "03",
       title: t('steps.development.title'),
       description: t('steps.development.description'),
     },
     {
-      icon: Rocket,
+      icon: CheckCircle,
       number: "04",
-      title: t('steps.deployment.title'),
-      description: t('steps.deployment.description'),
+      title: t('steps.delivery.title'),
+      description: t('steps.delivery.description'),
     },
   ]
   return (
@@ -59,7 +59,7 @@ export function Process() {
                   <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-secondary border border-border text-foreground transition-all duration-300 group-hover:bg-accent group-hover:text-accent-foreground group-hover:border-accent group-hover:scale-110">
                     <step.icon className="h-8 w-8" />
                   </div>
-                  <span className="absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-background border border-border text-xs font-bold">
+                  <span className="absolute -top-2 -end-2 flex h-8 w-8 items-center justify-center rounded-full bg-background border border-border text-xs font-bold">
                     {step.number}
                   </span>
                 </div>
