@@ -1,0 +1,237 @@
+{
+  "navigation": {
+    "services": "Services",
+    "expertise": "Expertise",
+    "process": "Process",
+    "about": "About",
+    "startProject": "Start a Project"
+  },
+  "hero": {
+    "badge": "Expert Development Services",
+    "title": {
+      "line1": "We build software",
+      "line2": "that scales with you"
+    },
+    "subtitle": "From fixing legacy codebases to scaling demos into production-ready services. Get expert consulting or full development with specialists in AI, full-stack, and cloud.",
+    "cta": {
+      "primary": "Start Your Project",
+      "secondary": "Explore Services"
+    },
+    "stats": {
+      "projects": {
+        "value": "150+",
+        "label": "Projects Delivered"
+      },
+      "satisfaction": {
+        "value": "98%",
+        "label": "Client Satisfaction"
+      },
+      "clients": {
+        "value": "50+",
+        "label": "Enterprise Clients"
+      },
+      "support": {
+        "value": "24/7",
+        "label": "Support Available"
+      }
+    }
+  },
+  "services": {
+    "section": {
+      "badge": "What We Do",
+      "title": "Services tailored to your needs",
+      "subtitle": "Whether you need a quick fix or a complete solution, we have the expertise to deliver results that matter."
+    },
+    "items": {
+      "codebase": {
+        "title": "Codebase Fixes & Optimization",
+        "description": "Legacy code holding you back? We diagnose, refactor, and optimize existing codebases to improve performance, maintainability, and scalability.",
+        "features": ["Technical debt reduction", "Performance optimization", "Security audits", "Code refactoring"],
+        "badge": "Most Popular"
+      },
+      "demo": {
+        "title": "Demo to Production",
+        "description": "Transform your proof-of-concept into a production-ready service. We handle infrastructure, scaling, security, and deployment pipelines.",
+        "features": ["Infrastructure setup", "CI/CD pipelines", "Load testing", "Production deployment"]
+      },
+      "consulting": {
+        "title": "Technical Consulting",
+        "description": "Get expert guidance on architecture decisions, technology choices, and development strategies without committing to full development.",
+        "features": ["Architecture review", "Tech stack analysis", "Roadmap planning", "Team training"]
+      },
+      "development": {
+        "title": "Full Development",
+        "description": "End-to-end software development from concept to deployment. We handle everything so you can focus on your business.",
+        "features": ["Custom applications", "API development", "Integration services", "Ongoing maintenance"]
+      }
+    },
+    "learnMore": "Learn more"
+  },
+  "expertise": {
+    "section": {
+      "badge": "Our Expertise",
+      "title": "Deep technical knowledge across domains",
+      "subtitle": "Our team brings decades of combined experience across cutting-edge technologies."
+    },
+    "areas": {
+      "ai": {
+        "title": "Artificial Intelligence",
+        "description": "LLM integration, custom ML models, AI-powered features, and intelligent automation solutions.",
+        "technologies": ["OpenAI", "LangChain", "TensorFlow", "PyTorch"]
+      },
+      "fullstack": {
+        "title": "Full-Stack Development",
+        "description": "Modern web applications with React, Next.js, Node.js, and scalable backend architectures.",
+        "technologies": ["React", "Next.js", "Node.js", "TypeScript"]
+      },
+      "cloud": {
+        "title": "Cloud & DevOps",
+        "description": "Cloud-native architectures, containerization, serverless functions, and infrastructure automation.",
+        "technologies": ["AWS", "GCP", "Docker", "Kubernetes"]
+      },
+      "data": {
+        "title": "Data Engineering",
+        "description": "Data pipelines, real-time analytics, database optimization, and data warehouse solutions.",
+        "technologies": ["PostgreSQL", "Redis", "Kafka", "Spark"]
+      },
+      "security": {
+        "title": "Security & Compliance",
+        "description": "Security audits, penetration testing, compliance implementation, and secure coding practices.",
+        "technologies": ["OAuth", "SOC2", "GDPR", "HIPAA"]
+      },
+      "performance": {
+        "title": "Performance Optimization",
+        "description": "Application profiling, bottleneck identification, caching strategies, and scalability improvements.",
+        "technologies": ["Profiling", "CDN", "Caching", "Load Testing"]
+      }
+    }
+  },
+  "process": {
+    "section": {
+      "badge": "How We Work",
+      "title": "A streamlined process for success",
+      "subtitle": "Our battle-tested methodology ensures every project is delivered on time and exceeds expectations."
+    },
+    "steps": {
+      "discovery": {
+        "title": "Discovery Call",
+        "description": "We start with a deep dive into your project requirements, challenges, and goals. No technical jargon—just a conversation about what you need."
+      },
+      "assessment": {
+        "title": "Technical Assessment",
+        "description": "Our experts analyze your existing systems, identify opportunities, and create a detailed proposal with clear deliverables and timeline."
+      },
+      "development": {
+        "title": "Development Sprint",
+        "description": "We work in focused sprints with regular updates. You'll have full visibility into progress with demos and feedback sessions throughout."
+      },
+      "deployment": {
+        "title": "Deployment & Launch",
+        "description": "Rigorous testing, documentation, and a smooth handoff. We ensure your solution is production-ready and your team is equipped to maintain it."
+      }
+    }
+  },
+  "contact": {
+    "section": {
+      "badge": "Get In Touch",
+      "title": "Ready to start your project?",
+      "subtitle": "Tell us about your needs and we'll get back to you within 24 hours with a tailored proposal."
+    },
+    "info": {
+      "email": {
+        "title": "Email Us",
+        "value": "hello@codecraftlabs.dev"
+      },
+      "phone": {
+        "title": "Call Us",
+        "value": "+1 (555) 123-4567"
+      },
+      "location": {
+        "title": "Based In",
+        "value": "Austin, Texas USA",
+        "additional": "Working globally"
+      }
+    },
+    "process": {
+      "title": "What happens next?",
+      "steps": [
+        "We review your requirements",
+        "Schedule a discovery call",
+        "Provide a detailed proposal"
+      ]
+    },
+    "form": {
+      "title": "Send us a message",
+      "description": "Fill out the form below and we'll get back to you shortly.",
+      "fields": {
+        "name": "Name",
+        "email": "Email",
+        "company": "Company",
+        "service": "Service Interested In",
+        "message": "Tell us about your project"
+      },
+      "placeholders": {
+        "name": "John Doe",
+        "email": "john@company.com",
+        "company": "Your Company",
+        "message": "Describe your project, timeline, and any specific requirements..."
+      },
+      "services": {
+        "placeholder": "Select a service",
+        "codebase": "Codebase Fixes & Optimization",
+        "demo": "Demo to Production",
+        "consulting": "Technical Consulting",
+        "development": "Full Development"
+      },
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "sent": "Message Sent!"
+    },
+    "success": {
+      "title": "Message sent!",
+      "description": "We'll get back to you within 24 hours."
+    }
+  },
+  "footer": {
+    "description": "Premium contract programming services. We help companies build, fix, and scale software that matters.",
+    "sections": {
+      "services": "Services",
+      "expertise": "Expertise",
+      "company": "Company"
+    },
+    "links": {
+      "services": {
+        "codebase": "Codebase Fixes",
+        "demo": "Demo to Production",
+        "consulting": "Consulting",
+        "development": "Full Development"
+      },
+      "expertise": {
+        "ai": "AI Development",
+        "fullstack": "Full-Stack",
+        "cloud": "Cloud & DevOps",
+        "data": "Data Engineering"
+      },
+      "company": {
+        "about": "About Us",
+        "process": "Process",
+        "contact": "Contact",
+        "careers": "Careers"
+      }
+    },
+    "social": {
+      "twitter": "Twitter",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    },
+    "bottom": {
+      "copyright": "© {year} CodeCraft Labs. All rights reserved.",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  },
+  "language": {
+    "en": "English",
+    "he": "עברית"
+  }
+}
