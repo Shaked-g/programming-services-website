@@ -34,6 +34,10 @@
         "value": "24/7",
         "label": "Academic Support"
       }
+    },
+    "disclaimer": {
+      "title": "Academic Integrity Notice:",
+      "message": "Our services are intended for learning assistance only. Do not submit completed assignments as your own work. Use our help to understand concepts and improve your skills."
     }
   },
   "services": {
@@ -284,5 +288,13 @@
   "language": {
     "en": "English",
     "he": "עברית"
+  },
+  "privacy": {
+    "title": "Privacy Policy - Academic Assist",
+    "description": "Our commitment to protecting your privacy and personal information. Learn how we collect, use, and safeguard your data."
+  },
+  "terms": {
+    "title": "Terms of Service - Academic Assist",
+    "description": "Terms and conditions for using Academic Assist services. Read carefully before using our academic help services."
   }
 }

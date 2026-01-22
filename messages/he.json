@@ -34,6 +34,10 @@
         "value": "24/7",
         "label": "תמיכה אקדמית"
       }
+    },
+    "disclaimer": {
+      "title": "הצהרת יושרה אקדמית:",
+      "message": "השירותים שלנו מיועדים לעזרה בלמידה בלבד. אין להגיש מטלות שהושלמו כעבודה מקורית שלך. השתמש בעזרה שלנו כדי להבין מושגים ולשפר את הכישורים שלך."
     }
   },
   "services": {
@@ -213,6 +217,173 @@
       "question": "איזה סוג עזרה במטלות אתה צריך?",
       "description": "בחר את האפשרות שמתארת בצורה הטובה ביותר את המטלה שלך"
     },
+    "assignmentDetails": {
+      "title": "ספר לנו על המטלה שלך",
+      "subtitle": "ככל שתספק יותר פרטים, כך נוכל לעזור לך להצליח יותר",
+      "fields": {
+        "assignmentTitle": "כותרת המטלה *",
+        "assignmentDescription": "תיאור המטלה *",
+        "subjectArea": "תחום הנושא",
+        "specificRequirements": "דרישות ספציפיות",
+        "hasExistingWork": "האם יש לך עבודה קיימת?",
+        "citationStyle": "סגנון ציטוט נדרש"
+      },
+      "placeholders": {
+        "assignmentTitle": "למשל: עבודת מחקר על התפתחות קוגניטיבית",
+        "assignmentDescription": "תאר את המטלה שלך, דרישותיה, ומה אתה צפוי להגיש...",
+        "subjectArea": "למשל: פסיכולוגיה התפתחותית, פילוסופיית התודעה, תרגול עבודה סוציאלית",
+        "specificRequirements": "הוראות ספציפיות, קריאה, או דרישות מהמרצה שלך?",
+        "citationStyle": "למשל: APA, MLA, שיקגו"
+      },
+      "existingWorkOptions": {
+        "yes": "כן",
+        "no": "לא",
+        "partial": "חלקית"
+      }
+    },
+    "academicRequirements": {
+      "title": "דרישות אקדמיות",
+      "subtitle": "עזור לנו להבין את הצרכים האקדמיים שלך",
+      "expertiseQuestion": "באילו תחומים אקדמיים אתה צריך עזרה? (בחר את כל הרלוונטי)",
+      "sourcesQuestion": "מקורות נדרשים ופורמט (בחר את כל הרלוונטי)",
+      "expertise": {
+        "psychology": "פסיכולוגיה",
+        "education": "חינוך",
+        "philosophy": "פילוסופיה",
+        "sociology": "סוציולוגיה",
+        "history": "היסטוריה",
+        "literature": "ספרות"
+      },
+      "categories": {
+        "citationStyle": "סגנון ציטוט",
+        "requiredSources": "מקורות נדרשים",
+        "formatRequirements": "דרישות פורמט",
+        "wordCount": "מספר מילים"
+      },
+      "options": {
+        "citationStyle": {
+          "APA": "APA",
+          "MLA": "MLA",
+          "Chicago": "שיקגו",
+          "Harvard": "הרוורד",
+          "IEEE": "IEEE",
+          "Other": "אחר"
+        },
+        "requiredSources": {
+          "Academic Journals": "כתבי עת אקדמיים",
+          "Books": "ספרים",
+          "Websites": "אתרי אינטרנט",
+          "Interviews": "ראיונות",
+          "Survey Data": "נתוני סקר",
+          "Other": "אחר"
+        },
+        "formatRequirements": {
+          "Research Paper": "עבודת מחקר",
+          "Essay": "מסה",
+          "Case Study": "מקרה בוחן",
+          "Literature Review": "סקירת ספרות",
+          "Presentation": "מצגת",
+          "Other": "אחר"
+        },
+        "wordCount": {
+          "500-1000": "500-1000",
+          "1000-2000": "1000-2000",
+          "2000-5000": "2000-5000",
+          "5000+": "5000+",
+          "Flexible": "גמיש"
+        }
+      }
+    },
+    "timelineLevel": {
+      "title": "מועד הגשה ורמה אקדמית",
+      "subtitle": "עזור לנו להבין את לוח הזמנים והדרישות האקדמיות שלך",
+      "deadlineLabel": "מועד הגשת המטלה *",
+      "academicLevelLabel": "רמה אקדמית *",
+      "submissionDateLabel": "תאריך הגשה מדויק",
+      "deadlines": {
+        "urgent-24h": {
+          "label": "תוך 24 שעות",
+          "description": "עזרה דחופה במטלות"
+        },
+        "urgent-3days": {
+          "label": "תוך 3 ימים",
+          "description": "מועד הגשה דחוף מאוד"
+        },
+        "week": {
+          "label": "תוך שבוע",
+          "description": "מועד הגשה קצר"
+        },
+        "2-weeks": {
+          "label": "תוך שבועיים",
+          "description": "מועד הגשה סטנדרטי"
+        },
+        "month": {
+          "label": "תוך חודש",
+          "description": "מועד הגשה ארוך יותר"
+        },
+        "flexible": {
+          "label": "גמיש",
+          "description": "אין מועד הגשה מיידי"
+        }
+      },
+      "academicLevels": {
+        "high-school": {
+          "label": "תיכון",
+          "description": "רמת חינוך תיכון"
+        },
+        "undergraduate": {
+          "label": "תואר ראשון",
+          "description": "רמת תואר ראשון"
+        },
+        "graduate": {
+          "label": "תואר שני",
+          "description": "רמת תואר שני"
+        },
+        "phd": {
+          "label": "דוקטורט",
+          "description": "מחקר ברמת דוקטורט"
+        },
+        "professional": {
+          "label": "מקצועי",
+          "description": "הסמכה מקצועית"
+        }
+      }
+    },
+    "contactInfo": {
+      "title": "פרטי הקשר שלך",
+      "subtitle": "נשתמש בזה כדי לחבר אותך למומחה האקדמי המתאים",
+      "fields": {
+        "name": {
+          "label": "שם מלא *",
+          "placeholder": "יוחנן ישראלי"
+        },
+        "email": {
+          "label": "כתובת אימייל *",
+          "placeholder": "your.email@university.edu"
+        },
+        "university": {
+          "label": "אוניברסיטה/מוסד (אופציונלי)",
+          "placeholder": "אוניברסיטה לדוגמה"
+        },
+        "phone": {
+          "label": "מספר טלפון",
+          "placeholder": "+972 (555) 123-4567"
+        },
+        "preferredContact": {
+          "label": "אמצעי קשר מועדף",
+          "options": {
+            "email": "אימייל",
+            "phone": "טלפון",
+            "whatsapp": "וואטסאפ",
+            "either": "כל אחד"
+          }
+        },
+        "additionalNotes": {
+          "label": "משהו נוסף שנרצה לדעת?",
+          "placeholder": "חששות ספציפיים, מטרות למידה או דרישות נוספות..."
+        }
+      }
+    },
     "services": {
       "programming": {
         "title": "תכנות ומדעי המחשב",
@@ -286,5 +457,13 @@
   "language": {
     "en": "English",
     "he": "עברית"
+  },
+  "privacy": {
+    "title": "מדיניות פרטיות - Academic Assist",
+    "description": "המחויבות שלנו להגן על הפרטיות והמידע האישי שלך. למד איך אנו אוספים, משתמשים ומגנים על הנתונים שלך."
+  },
+  "terms": {
+    "title": "תנאי שימוש - Academic Assist",
+    "description": "תנאים והגבלות לשימוש בשירותי Academic Assist. קרא בעיון לפני השימוש בשירותי העזרה האקדמית שלנו."
   }
 }

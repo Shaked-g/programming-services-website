@@ -34,77 +34,8 @@ import { toast } from "sonner"
 import { Loader2 } from "lucide-react"
 import { useTranslations } from "next-intl"
 
-const steps = [
-  { id: 1, name: t('steps.assignmentType'), icon: Sparkles },
-  { id: 2, name: t('steps.assignmentDetails'), icon: FileText },
-  { id: 3, name: t('steps.academicRequirements'), icon: Code2 },
-  { id: 4, name: t('steps.timelineLevel'), icon: Clock },
-  { id: 5, name: t('steps.contactInfo'), icon: Send },
-]
 
-const assignmentTypes = [
-  {
-    id: "programming",
-    title: t('request.services.programming.title'),
-    description: t('request.services.programming.description'),
-    icon: Code2,
-    examples: t.raw('request.services.programming.features'),
-  },
-  {
-    id: "humanities",
-    title: t('request.services.humanities.title'),
-    description: t('request.services.humanities.description'),
-    icon: MessageSquare,
-    examples: t.raw('request.services.humanities.features'),
-  },
-  {
-    id: "social_work",
-    title: t('request.services.social_work.title'),
-    description: t('request.services.social_work.description'),
-    icon: Wrench,
-    examples: t.raw('request.services.social_work.features'),
-  },
-  {
-    id: "multidisciplinary",
-    title: t('request.services.multidisciplinary.title'),
-    description: t('request.services.multidisciplinary.description'),
-    icon: Rocket,
-    examples: t.raw('request.services.multidisciplinary.features'),
-  },
-]
 
-const academicExpertise = [
-  { id: "psychology", label: "Psychology", icon: Brain },
-  { id: "education", label: "Education", icon: Server },
-  { id: "philosophy", label: "Philosophy", icon: Cloud },
-  { id: "sociology", label: "Sociology", icon: Database },
-  { id: "history", label: "History", icon: Shield },
-  { id: "literature", label: "Literature", icon: Zap },
-]
-
-const academicRequirements = [
-  { category: "Citation Style", options: ["APA", "MLA", "Chicago", "Harvard", "IEEE", "Other"] },
-  { category: "Required Sources", options: ["Academic Journals", "Books", "Websites", "Interviews", "Survey Data", "Other"] },
-  { category: "Format Requirements", options: ["Research Paper", "Essay", "Case Study", "Literature Review", "Presentation", "Other"] },
-  { category: "Word Count", options: ["500-1000", "1000-2000", "2000-5000", "5000+", "Flexible"] },
-]
-
-const deadlineOptions = [
-  { id: "urgent-24h", label: "Within 24 hours", description: "Emergency assignment help" },
-  { id: "urgent-3days", label: "Within 3 days", description: "Very urgent deadline" },
-  { id: "week", label: "Within a week", description: "Short deadline" },
-  { id: "2-weeks", label: "Within 2 weeks", description: "Standard deadline" },
-  { id: "month", label: "Within a month", description: "Longer deadline" },
-  { id: "flexible", label: "Flexible", description: "No immediate deadline" },
-]
-
-const academicLevelOptions = [
-  { id: "high-school", label: "High School", description: "Secondary education level" },
-  { id: "undergraduate", label: "Undergraduate", description: "Bachelor's degree level" },
-  { id: "graduate", label: "Graduate", description: "Master's degree level" },
-  { id: "phd", label: "PhD", description: "Doctoral level research" },
-  { id: "professional", label: "Professional", description: "Professional certification" },
-]
 
 type FormData = {
   assignmentType: string
@@ -123,7 +54,6 @@ type FormData = {
   name: string
   email: string
   university: string
-  studentId: string
   phone: string
   preferredContact: string
   additionalNotes: string
@@ -134,6 +64,162 @@ export function ProjectRequestForm() {
   const [currentStep, setCurrentStep] = useState(1)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const steps = [
+    { id: 1, name: t('steps.assignmentType'), icon: Sparkles },
+    { id: 2, name: t('steps.assignmentDetails'), icon: FileText },
+    { id: 3, name: t('steps.academicRequirements'), icon: Code2 },
+    { id: 4, name: t('steps.timelineLevel'), icon: Clock },
+    { id: 5, name: t('steps.contactInfo'), icon: Send },
+  ]
+
+  const academicExpertise = [
+    { id: "psychology", label: t('academicRequirements.expertise.psychology'), icon: Brain },
+    { id: "education", label: t('academicRequirements.expertise.education'), icon: Server },
+    { id: "philosophy", label: t('academicRequirements.expertise.philosophy'), icon: Cloud },
+    { id: "sociology", label: t('academicRequirements.expertise.sociology'), icon: Database },
+    { id: "history", label: t('academicRequirements.expertise.history'), icon: Shield },
+    { id: "literature", label: t('academicRequirements.expertise.literature'), icon: Zap },
+  ]
+
+  const academicRequirements = [
+    {
+      category: t('academicRequirements.categories.citationStyle'),
+      options: [
+        { key: "APA", label: t('academicRequirements.options.citationStyle.APA') },
+        { key: "MLA", label: t('academicRequirements.options.citationStyle.MLA') },
+        { key: "Chicago", label: t('academicRequirements.options.citationStyle.Chicago') },
+        { key: "Harvard", label: t('academicRequirements.options.citationStyle.Harvard') },
+        { key: "IEEE", label: t('academicRequirements.options.citationStyle.IEEE') },
+        { key: "Other", label: t('academicRequirements.options.citationStyle.Other') }
+      ]
+    },
+    {
+      category: t('academicRequirements.categories.requiredSources'),
+      options: [
+        { key: "Academic Journals", label: t('academicRequirements.options.requiredSources.Academic Journals') },
+        { key: "Books", label: t('academicRequirements.options.requiredSources.Books') },
+        { key: "Websites", label: t('academicRequirements.options.requiredSources.Websites') },
+        { key: "Interviews", label: t('academicRequirements.options.requiredSources.Interviews') },
+        { key: "Survey Data", label: t('academicRequirements.options.requiredSources.Survey Data') },
+        { key: "Other", label: t('academicRequirements.options.requiredSources.Other') }
+      ]
+    },
+    {
+      category: t('academicRequirements.categories.formatRequirements'),
+      options: [
+        { key: "Research Paper", label: t('academicRequirements.options.formatRequirements.Research Paper') },
+        { key: "Essay", label: t('academicRequirements.options.formatRequirements.Essay') },
+        { key: "Case Study", label: t('academicRequirements.options.formatRequirements.Case Study') },
+        { key: "Literature Review", label: t('academicRequirements.options.formatRequirements.Literature Review') },
+        { key: "Presentation", label: t('academicRequirements.options.formatRequirements.Presentation') },
+        { key: "Other", label: t('academicRequirements.options.formatRequirements.Other') }
+      ]
+    },
+    {
+      category: t('academicRequirements.categories.wordCount'),
+      options: [
+        { key: "500-1000", label: t('academicRequirements.options.wordCount.500-1000') },
+        { key: "1000-2000", label: t('academicRequirements.options.wordCount.1000-2000') },
+        { key: "2000-5000", label: t('academicRequirements.options.wordCount.2000-5000') },
+        { key: "5000+", label: t('academicRequirements.options.wordCount.5000+') },
+        { key: "Flexible", label: t('academicRequirements.options.wordCount.Flexible') }
+      ]
+    }
+  ]
+
+  const assignmentTypes = [
+    {
+      id: "programming",
+      title: t('services.programming.title'),
+      description: t('services.programming.description'),
+      icon: Code2,
+      examples: t.raw('services.programming.features'),
+    },
+    {
+      id: "humanities",
+      title: t('services.humanities.title'),
+      description: t('services.humanities.description'),
+      icon: MessageSquare,
+      examples: t.raw('services.humanities.features'),
+    },
+    {
+      id: "social_work",
+      title: t('services.social_work.title'),
+      description: t('services.social_work.description'),
+      icon: Wrench,
+      examples: t.raw('services.social_work.features'),
+    },
+    {
+      id: "multidisciplinary",
+      title: t('services.multidisciplinary.title'),
+      description: t('services.multidisciplinary.description'),
+      icon: Rocket,
+      examples: t.raw('services.multidisciplinary.features'),
+    },
+  ]
+
+  const deadlineOptions = [
+    {
+      id: "urgent-24h",
+      label: t('timelineLevel.deadlines.urgent-24h.label'),
+      description: t('timelineLevel.deadlines.urgent-24h.description')
+    },
+    {
+      id: "urgent-3days",
+      label: t('timelineLevel.deadlines.urgent-3days.label'),
+      description: t('timelineLevel.deadlines.urgent-3days.description')
+    },
+    {
+      id: "week",
+      label: t('timelineLevel.deadlines.week.label'),
+      description: t('timelineLevel.deadlines.week.description')
+    },
+    {
+      id: "2-weeks",
+      label: t('timelineLevel.deadlines.2-weeks.label'),
+      description: t('timelineLevel.deadlines.2-weeks.description')
+    },
+    {
+      id: "month",
+      label: t('timelineLevel.deadlines.month.label'),
+      description: t('timelineLevel.deadlines.month.description')
+    },
+    {
+      id: "flexible",
+      label: t('timelineLevel.deadlines.flexible.label'),
+      description: t('timelineLevel.deadlines.flexible.description')
+    }
+  ]
+
+  const academicLevelOptions = [
+    {
+      id: "high-school",
+      label: t('timelineLevel.academicLevels.high-school.label'),
+      description: t('timelineLevel.academicLevels.high-school.description')
+    },
+    {
+      id: "undergraduate",
+      label: t('timelineLevel.academicLevels.undergraduate.label'),
+      description: t('timelineLevel.academicLevels.undergraduate.description')
+    },
+    {
+      id: "graduate",
+      label: t('timelineLevel.academicLevels.graduate.label'),
+      description: t('timelineLevel.academicLevels.graduate.description')
+    },
+    {
+      id: "phd",
+      label: t('timelineLevel.academicLevels.phd.label'),
+      description: t('timelineLevel.academicLevels.phd.description')
+    },
+    {
+      id: "professional",
+      label: t('timelineLevel.academicLevels.professional.label'),
+      description: t('timelineLevel.academicLevels.professional.description')
+    }
+  ]
+
   const [formData, setFormData] = useState<FormData>({
     assignmentType: "",
     assignmentTitle: "",
@@ -378,7 +464,7 @@ export function ProjectRequestForm() {
                             <h3 className="font-medium">{assignment.title}</h3>
                             <p className="text-sm text-muted-foreground">{assignment.description}</p>
                             <div className="flex flex-wrap gap-1.5 pt-2">
-                              {assignment.examples.map((example) => (
+                              {(assignment.examples as string[]).map((example: string) => (
                                 <span
                                   key={example}
                                   className="text-xs px-2 py-0.5 rounded-full bg-secondary text-muted-foreground"
@@ -399,27 +485,27 @@ export function ProjectRequestForm() {
               {currentStep === 2 && (
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-xl font-semibold mb-2">Tell us about your assignment</h2>
+                    <h2 className="text-xl font-semibold mb-2">{t('assignmentDetails.title')}</h2>
                     <p className="text-muted-foreground text-sm">
-                      The more detail you provide, the better we can help you excel
+                      {t('assignmentDetails.subtitle')}
                     </p>
                   </div>
                   <div className="space-y-5">
                     <div className="space-y-2">
-                      <Label htmlFor="assignmentTitle">Assignment Title *</Label>
+                      <Label htmlFor="assignmentTitle">{t('assignmentDetails.fields.assignmentTitle')}</Label>
                       <Input
                         id="assignmentTitle"
-                        placeholder="e.g., Research Paper on Cognitive Development"
+                        placeholder={t('assignmentDetails.placeholders.assignmentTitle')}
                         value={formData.assignmentTitle}
                         onChange={(e) => updateFormData("assignmentTitle", e.target.value)}
                         required
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="assignmentDescription">Assignment Description *</Label>
+                      <Label htmlFor="assignmentDescription">{t('assignmentDetails.fields.assignmentDescription')}</Label>
                       <Textarea
                         id="assignmentDescription"
-                        placeholder="Describe your assignment, its requirements, and what you're expected to deliver..."
+                        placeholder={t('assignmentDetails.placeholders.assignmentDescription')}
                         rows={4}
                         value={formData.assignmentDescription}
                         onChange={(e) => updateFormData("assignmentDescription", e.target.value)}
@@ -427,19 +513,19 @@ export function ProjectRequestForm() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="subjectArea">Subject Area</Label>
+                      <Label htmlFor="subjectArea">{t('assignmentDetails.fields.subjectArea')}</Label>
                       <Input
                         id="subjectArea"
-                        placeholder="e.g., Developmental Psychology, Philosophy of Mind, Social Work Practice"
+                        placeholder={t('assignmentDetails.placeholders.subjectArea')}
                         value={formData.subjectArea}
                         onChange={(e) => updateFormData("subjectArea", e.target.value)}
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="specificRequirements">Specific Requirements</Label>
+                      <Label htmlFor="specificRequirements">{t('assignmentDetails.fields.specificRequirements')}</Label>
                       <Textarea
                         id="specificRequirements"
-                        placeholder="Any specific instructions, readings, or requirements from your professor?"
+                        placeholder={t('assignmentDetails.placeholders.specificRequirements')}
                         rows={3}
                         value={formData.specificRequirements}
                         onChange={(e) => updateFormData("specificRequirements", e.target.value)}
@@ -447,30 +533,34 @@ export function ProjectRequestForm() {
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label>Do you have existing work?</Label>
+                        <Label>{t('assignmentDetails.fields.hasExistingWork')}</Label>
                         <div className="flex gap-3">
-                          {["Yes", "No", "Partial"].map((option) => (
+                          {[
+                            { key: "yes", label: t('assignmentDetails.existingWorkOptions.yes') },
+                            { key: "no", label: t('assignmentDetails.existingWorkOptions.no') },
+                            { key: "partial", label: t('assignmentDetails.existingWorkOptions.partial') }
+                          ].map((option) => (
                             <button
-                              key={option}
+                              key={option.key}
                               type="button"
-                              onClick={() => updateFormData("hasExistingWork", option.toLowerCase())}
+                              onClick={() => updateFormData("hasExistingWork", option.key)}
                               className={cn(
                                 "px-4 py-2 rounded-lg border text-sm transition-all",
-                                formData.hasExistingWork === option.toLowerCase()
+                                formData.hasExistingWork === option.key
                                   ? "border-accent bg-accent/10 text-accent"
                                   : "border-border hover:border-accent/50",
                               )}
                             >
-                              {option}
+                              {option.label}
                             </button>
                           ))}
                         </div>
                       </div>
                       <div className="space-y-2">
-                        <Label>Citation Style Required</Label>
+                        <Label>{t('assignmentDetails.fields.citationStyle')}</Label>
                         <Input
                           id="citationStyle"
-                          placeholder="e.g., APA, MLA, Chicago"
+                          placeholder={t('assignmentDetails.placeholders.citationStyle')}
                           value={formData.citationStyle}
                           onChange={(e) => updateFormData("citationStyle", e.target.value)}
                         />
@@ -484,14 +574,14 @@ export function ProjectRequestForm() {
               {currentStep === 3 && (
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-xl font-semibold mb-2">Academic Requirements</h2>
+                    <h2 className="text-xl font-semibold mb-2">{t('academicRequirements.title')}</h2>
                     <p className="text-muted-foreground text-sm">
-                      Help us understand your academic needs and requirements
+                      {t('academicRequirements.subtitle')}
                     </p>
                   </div>
                   <div className="space-y-6">
                     <div className="space-y-3">
-                      <Label>What academic areas do you need help with? (Select all that apply)</Label>
+                      <Label>{t('academicRequirements.expertiseQuestion')}</Label>
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                         {academicExpertise.map((academic) => (
                           <button
@@ -518,24 +608,24 @@ export function ProjectRequestForm() {
                     </div>
 
                     <div className="space-y-4">
-                      <Label>Required sources and format (select all that apply)</Label>
+                      <Label>{t('academicRequirements.sourcesQuestion')}</Label>
                       {academicRequirements.map((requirement) => (
                         <div key={requirement.category} className="space-y-2">
                           <p className="text-sm text-muted-foreground">{requirement.category}</p>
                           <div className="flex flex-wrap gap-2">
                             {requirement.options.map((option) => (
                               <button
-                                key={option}
+                                key={option.key}
                                 type="button"
-                                onClick={() => toggleSourceOption(requirement.category, option)}
+                                onClick={() => toggleSourceOption(requirement.category, option.key)}
                                 className={cn(
                                   "px-3 py-1.5 rounded-full border text-sm transition-all",
-                                  (formData.requiredSources[requirement.category] || []).includes(option)
+                                  (formData.requiredSources[requirement.category] || []).includes(option.key)
                                     ? "border-accent bg-accent/10 text-accent"
                                     : "border-border hover:border-accent/50",
                                 )}
                               >
-                                {option}
+                                {option.label}
                               </button>
                             ))}
                           </div>
@@ -550,16 +640,16 @@ export function ProjectRequestForm() {
               {currentStep === 4 && (
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-xl font-semibold mb-2">Deadline & Academic Level</h2>
+                    <h2 className="text-xl font-semibold mb-2">{t('timelineLevel.title')}</h2>
                     <p className="text-muted-foreground text-sm">
-                      Help us understand your timeline and academic requirements
+                      {t('timelineLevel.subtitle')}
                     </p>
                   </div>
                   <div className="space-y-6">
                     <div className="space-y-3">
                       <Label className="flex items-center gap-2">
                         <Clock className="h-4 w-4 text-muted-foreground" />
-                        Assignment Deadline *
+                        {t('timelineLevel.deadlineLabel')}
                       </Label>
                       <div className="grid sm:grid-cols-3 gap-3">
                         {deadlineOptions.map((option) => (
@@ -584,7 +674,7 @@ export function ProjectRequestForm() {
                     <div className="space-y-3">
                       <Label className="flex items-center gap-2">
                         <FileText className="h-4 w-4 text-muted-foreground" />
-                        Academic Level *
+                        {t('timelineLevel.academicLevelLabel')}
                       </Label>
                       <div className="grid sm:grid-cols-3 gap-3">
                         {academicLevelOptions.map((option) => (
@@ -607,7 +697,7 @@ export function ProjectRequestForm() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="submissionDate">Exact Submission Date</Label>
+                      <Label htmlFor="submissionDate">{t('timelineLevel.submissionDateLabel')}</Label>
                       <Input
                         id="submissionDate"
                         type="date"
@@ -624,29 +714,29 @@ export function ProjectRequestForm() {
               {currentStep === 5 && (
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-xl font-semibold mb-2">Your Contact Information</h2>
+                    <h2 className="text-xl font-semibold mb-2">{t('contactInfo.title')}</h2>
                     <p className="text-muted-foreground text-sm">
-                      We'll use this to connect you with the right academic expert
+                      {t('contactInfo.subtitle')}
                     </p>
                   </div>
                   <div className="space-y-5">
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="name">Full Name *</Label>
+                        <Label htmlFor="name">{t('contactInfo.fields.name.label')}</Label>
                         <Input
                           id="name"
-                          placeholder="John Doe"
+                          placeholder={t('contactInfo.fields.name.placeholder')}
                           value={formData.name}
                           onChange={(e) => updateFormData("name", e.target.value)}
                           required
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email Address *</Label>
+                        <Label htmlFor="email">{t('contactInfo.fields.email.label')}</Label>
                         <Input
                           id="email"
                           type="email"
-                          placeholder="your.email@university.edu"
+                          placeholder={t('contactInfo.fields.email.placeholder')}
                           value={formData.email}
                           onChange={(e) => updateFormData("email", e.target.value)}
                           required
@@ -656,51 +746,56 @@ export function ProjectRequestForm() {
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="university">University/Institution (Optional)</Label>
+                      <Label htmlFor="university">{t('contactInfo.fields.university.label')}</Label>
                       <Input
                         id="university"
-                        placeholder="University of Example"
+                        placeholder={t('contactInfo.fields.university.placeholder')}
                         value={formData.university}
                         onChange={(e) => updateFormData("university", e.target.value)}
                       />
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="phone">Phone Number</Label>
+                        <Label htmlFor="phone">{t('contactInfo.fields.phone.label')}</Label>
                         <Input
                           id="phone"
                           type="tel"
-                          placeholder="+1 (555) 123-4567"
+                          placeholder={t('contactInfo.fields.phone.placeholder')}
                           value={formData.phone}
                           onChange={(e) => updateFormData("phone", e.target.value)}
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label>Preferred Contact Method</Label>
+                        <Label>{t('contactInfo.fields.preferredContact.label')}</Label>
                         <div className="grid grid-cols-2 gap-3">
-                          {["Email", "Phone", "WhatsApp", "Either"].map((option) => (
+                          {[
+                            { key: "email", label: t('contactInfo.fields.preferredContact.options.email') },
+                            { key: "phone", label: t('contactInfo.fields.preferredContact.options.phone') },
+                            { key: "whatsapp", label: t('contactInfo.fields.preferredContact.options.whatsapp') },
+                            { key: "either", label: t('contactInfo.fields.preferredContact.options.either') }
+                          ].map((option) => (
                             <button
-                              key={option}
+                              key={option.key}
                               type="button"
-                              onClick={() => updateFormData("preferredContact", option.toLowerCase())}
+                              onClick={() => updateFormData("preferredContact", option.key)}
                               className={cn(
                                 "px-4 py-2 rounded-lg border text-sm transition-all",
-                                formData.preferredContact === option.toLowerCase()
+                                formData.preferredContact === option.key
                                   ? "border-accent bg-accent/10 text-accent"
                                   : "border-border hover:border-accent/50",
                               )}
                             >
-                              {option}
+                              {option.label}
                             </button>
                           ))}
                         </div>
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="additionalNotes">Anything else we should know?</Label>
+                      <Label htmlFor="additionalNotes">{t('contactInfo.fields.additionalNotes.label')}</Label>
                       <Textarea
                         id="additionalNotes"
-                        placeholder="Any specific concerns, learning objectives, or additional requirements..."
+                        placeholder={t('contactInfo.fields.additionalNotes.placeholder')}
                         rows={3}
                         value={formData.additionalNotes}
                         onChange={(e) => updateFormData("additionalNotes", e.target.value)}
@@ -720,13 +815,13 @@ export function ProjectRequestForm() {
               {/* Navigation Buttons */}
               <div className="flex items-center justify-between mt-8 pt-6 border-t border-border">
                 <Button type="button" variant="ghost" onClick={prevStep} disabled={currentStep === 1}>
-                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  <ArrowLeft className="me-2 h-4 w-4 rtl:rotate-180" />
                   {t('navigation.previous')}
                 </Button>
                 {currentStep < 5 ? (
                   <Button type="button" onClick={nextStep} disabled={!canProceed()}>
                     {t('navigation.next')}
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    <ArrowRight className="ms-2 h-4 w-4 rtl:rotate-180" />
                   </Button>
                 ) : (
                   <Button type="submit" disabled={!canProceed() || isSubmitting}>

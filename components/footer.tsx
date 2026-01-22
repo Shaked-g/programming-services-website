@@ -124,10 +124,10 @@ export function Footer() {
             {t('bottom.copyright', { year: new Date().getFullYear() })}
           </p>
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
-            <Link href="#" className="hover:text-foreground transition-colors">
+            <Link href="/privacy" className="hover:text-foreground transition-colors">
               {t('bottom.privacy')}
             </Link>
-            <Link href="#" className="hover:text-foreground transition-colors">
+            <Link href="/terms" className="hover:text-foreground transition-colors">
               {t('bottom.terms')}
             </Link>
           </div>

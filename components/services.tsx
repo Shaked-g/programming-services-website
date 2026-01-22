@@ -92,7 +92,7 @@ export function Services() {
                   className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-foreground hover:text-accent transition-colors group/link"
                 >
                   {t('learnMore')}
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+                  <ArrowRight className="h-4 w-4 ms-1 transition-transform group-hover/link:translate-x-1 rtl:rotate-180 rtl:group-hover/link:-translate-x-1" />
                 </Link>
               </CardContent>
             </Card>

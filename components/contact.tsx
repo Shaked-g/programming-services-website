@@ -53,8 +53,10 @@ export function Contact() {
       setFormData({
         name: "",
         email: "",
-        company: "",
+        subject: "",
         service: "",
+        deadline: "",
+        academicLevel: "",
         message: "",
       })
 
