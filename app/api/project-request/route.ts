@@ -91,6 +91,7 @@ export async function POST(request: NextRequest) {
         name,
         email,
         university,
+        phone,
         deadline,
         academicExpertise: academicExpertise || [],
         requiredSources: requiredSources || {},

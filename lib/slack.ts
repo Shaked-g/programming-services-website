@@ -68,6 +68,7 @@ export function formatAssignmentRequestMessage(data: {
   name: string
   email: string
   university?: string
+  phone?: string
   deadline: string
   academicExpertise: string[]
   requiredSources: Record<string, string[]>
@@ -109,6 +110,7 @@ export function formatAssignmentRequestMessage(data: {
 *Assignment Title:* ${data.assignmentTitle}
 *Student:* ${data.name} (${data.email})
 ${data.university ? `*University:* ${data.university}` : ''}
+${data.phone ? `*Phone:* ${data.phone}` : ''}
 *Subject Area:* ${data.subjectArea}
 *Academic Level:* ${readableAcademicLevel}
 *Deadline:* ${data.deadline}
