@@ -245,6 +245,18 @@
     "security": {
       "message": "Your information is secure and will only be used to match you with academic experts.",
       "responseTime": "Average response time: less than 24 hours"
+    },
+    "success": {
+      "title": "Request Submitted!",
+      "message": "Thank you for your detailed assignment submission. Our team will review your requirements and connect you with the right academic expert within 24 hours.",
+      "whatHappensNext": "What happens next?",
+      "steps": {
+        "review": "Our team reviews your assignment details and academic requirements",
+        "match": "We match you with a subject matter expert in your field",
+        "timeline": "Receive a timeline and pricing quote within 24 hours",
+        "begin": "Begin academic support as soon as you approve"
+      },
+      "backToHomepage": "Back to Homepage"
     }
   },
   "footer": {

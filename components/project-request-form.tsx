@@ -333,34 +333,33 @@ export function ProjectRequestForm() {
           <div className="mb-8 inline-flex h-20 w-20 items-center justify-center rounded-full bg-accent/10">
             <CheckCircle className="h-10 w-10 text-accent" />
           </div>
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Request Submitted!</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">{t('success.title')}</h1>
           <p className="text-lg text-muted-foreground mb-8">
-            Thank you for your detailed assignment submission. Our team will review your requirements and connect you
-            with the right academic expert within 24 hours.
+            {t('success.message')}
           </p>
           <div className="p-6 rounded-xl bg-card border border-border text-left space-y-4">
-            <h3 className="font-semibold">What happens next?</h3>
+            <h3 className="font-semibold">{t('success.whatHappensNext')}</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-3">
                 <Check className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                <span>Our team reviews your assignment details and academic requirements</span>
+                <span>{t('success.steps.review')}</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                <span>We match you with a subject matter expert in your field</span>
+                <span>{t('success.steps.match')}</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                <span>Receive a timeline and pricing quote within 24 hours</span>
+                <span>{t('success.steps.timeline')}</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="h-5 w-5 text-accent shrink-0 mt-0.5" />
-                <span>Begin academic support as soon as you approve</span>
+                <span>{t('success.steps.begin')}</span>
               </li>
             </ul>
           </div>
           <Button asChild className="mt-8">
-            <a href="/">Back to Homepage</a>
+            <a href="/">{t('success.backToHomepage')}</a>
           </Button>
         </div>
       </section>
