@@ -19,7 +19,7 @@
     },
     "stats": {
       "projects": {
-        "value": "500+",
+        "value": "100+",
         "label": "מטלות הושלמו"
       },
       "satisfaction": {
@@ -27,8 +27,8 @@
         "label": "שביעות רצון סטודנטים"
       },
       "clients": {
-        "value": "200+",
-        "label": "סטודנטים עזרו"
+        "value": "50+",
+        "label": "סטודנטים נעזרו"
       },
       "support": {
         "value": "24/7",
