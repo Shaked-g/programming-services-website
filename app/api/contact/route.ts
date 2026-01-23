@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
       const db = await getDatabase()
       const collection = db.collection<ContactSubmission>('contact-submissions')
       const result = await collection.insertOne(submission)
-      console.log('✅ Contact submission saved to MongoDB:', result.insertedId)
+      console.log('✅ Contact submission saved to MongoDB')
     } catch (dbError) {
       console.error('❌ Database error:', dbError)
       // Continue even if DB fails - we still want to send Slack notification
