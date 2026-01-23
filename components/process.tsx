@@ -2,9 +2,13 @@
 
 import { MessageSquare, Search, BookOpen, CheckCircle } from "lucide-react"
 import { useTranslations } from "next-intl"
+import { useParams } from "next/navigation"
 
 export function Process() {
   const t = useTranslations('process')
+  const params = useParams()
+  const locale = params.locale as string
+  const isRTL = locale === 'he'
 
   const steps = [
     {
@@ -59,9 +63,11 @@ export function Process() {
                   <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-secondary border border-border text-foreground transition-all duration-300 group-hover:bg-accent group-hover:text-accent-foreground group-hover:border-accent group-hover:scale-110">
                     <step.icon className="h-8 w-8" />
                   </div>
-                  <span className="absolute -top-2 -end-2 flex h-8 w-8 items-center justify-center rounded-full bg-background border border-border text-xs font-bold">
-                    {step.number}
-                  </span>
+                  {!isRTL && (
+                    <span className="absolute -top-2 -end-2 flex h-8 w-8 items-center justify-center rounded-full bg-background border border-border text-xs font-bold">
+                      {step.number}
+                    </span>
+                  )}
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
