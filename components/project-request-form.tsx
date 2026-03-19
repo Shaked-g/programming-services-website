@@ -32,7 +32,7 @@ import {
 import { cn } from "@/lib/utils"
 import { toast } from "sonner"
 import { Loader2 } from "lucide-react"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 
 
 
@@ -62,6 +62,8 @@ type FormData = {
 
 export function ProjectRequestForm() {
   const t = useTranslations('request')
+  const locale = useLocale()
+  const isRTL = locale === "he"
   const [currentStep, setCurrentStep] = useState(1)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
