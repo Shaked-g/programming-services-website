@@ -114,10 +114,13 @@ export async function POST(request: NextRequest) {
       })
     } catch (emailError) {
       console.error('❌ Email notification error:', emailError)
+      const debugMessage =
+        emailError instanceof Error ? emailError.message : 'Unknown email delivery error'
       return NextResponse.json(
         {
           error:
             "Request saved, but email delivery failed. Please check your email provider configuration and try again.",
+          debugMessage,
         },
         { status: 502 },
       )

@@ -875,11 +875,29 @@ export function ProjectRequestForm() {
                         onChange={(e) => updateFormData("additionalNotes", e.target.value)}
                       />
                     </div>
-                    <div className="flex items-start gap-2 pt-2">
+                    <div
+                      className={cn("flex items-start gap-2 pt-2", isRTL && "flex-row-reverse")}
+                    >
                       <Checkbox id="terms" required />
-                      <Label htmlFor="terms" className="text-sm text-muted-foreground font-normal leading-snug">
-                        I agree to be contacted regarding this assignment help request. We'll never share your information with
-                        third parties. All work provided is for educational purposes only.
+                      <Label
+                        htmlFor="terms"
+                        dir={isRTL ? "rtl" : "ltr"}
+                        className={cn(
+                          "text-sm text-muted-foreground font-normal leading-snug",
+                          isRTL && "text-right",
+                        )}
+                      >
+                        {isRTL ? (
+                          <>
+                            אני מסכים/ה שייצרו איתי קשר בנוגע לבקשת עזרה זו. לעולם לא נשתף את המידע שלך עם
+                            צדדים שלישיים. כל העבודה שסופקת מיועדת למטרות חינוכיות בלבד.
+                          </>
+                        ) : (
+                          <>
+                            I agree to be contacted regarding this assignment help request. We'll never share your information with
+                            third parties. All work provided is for educational purposes only.
+                          </>
+                        )}
                       </Label>
                     </div>
                   </div>

@@ -97,15 +97,44 @@ function getFormSubmitRecipientEmail(): string | null {
   return email
 }
 
+function normalizePayloadForFormSubmit(payload: Record<string, unknown>): Record<string, string> {
+  const normalized: Record<string, string> = {}
+  for (const [key, value] of Object.entries(payload)) {
+    if (value === undefined || value === null) continue
+    if (typeof value === "string") normalized[key] = value
+    else if (typeof value === "number" || typeof value === "boolean") normalized[key] = String(value)
+    else normalized[key] = JSON.stringify(value)
+  }
+  return normalized
+}
+
 export async function sendFormSubmitEmail(input: EmailNotificationInput): Promise<void> {
-  // Prefer Resend when configured.
-  if (getResendApiKey() && getResendFromEmail()) {
-    await sendViaResend(input)
-    return
+  // Prefer Resend when configured, but fall back to FormSubmit if Resend fails
+  // (e.g. unverified `from` address on Vercel).
+  const resendApiKey = getResendApiKey()
+  const resendFrom = getResendFromEmail()
+  let resendError: unknown = null
+  if (resendApiKey && resendFrom) {
+    try {
+      await sendViaResend(input)
+      return
+    } catch (err) {
+      console.error('❌ Resend email failed, falling back to FormSubmit:', err)
+      resendError = err
+    }
   }
 
   const recipientEmail = getFormSubmitRecipientEmail()
-  if (!recipientEmail) return
+  if (!recipientEmail) {
+    if (resendError) {
+      const message =
+        resendError instanceof Error ? resendError.message : 'Resend email failed'
+      throw new Error(
+        `Email delivery failed via Resend and no FormSubmit fallback is configured. Last error: ${message}`,
+      )
+    }
+    return
+  }
 
   const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(recipientEmail)}`
   const headers: Record<string, string> = {
@@ -125,7 +154,7 @@ export async function sendFormSubmitEmail(input: EmailNotificationInput): Promis
       _subject: input.subject,
       _captcha: "false",
       formType: input.formType,
-      ...input.payload,
+      ...normalizePayloadForFormSubmit(input.payload),
     }),
   })
 

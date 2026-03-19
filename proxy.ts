@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server'
 
 const intlMiddleware = createMiddleware({
   locales,
-  defaultLocale: 'en',
+  defaultLocale: 'he',
   localeDetection: true,
   localePrefix: 'always'
 })
@@ -15,7 +15,7 @@ export default function middleware(request: any) {
 
   // Extract locale from pathname
   const localeMatch = pathname.match(/^\/(en|he)/)
-  const detectedLocale = localeMatch ? localeMatch[1] : 'en'
+  const detectedLocale = localeMatch ? localeMatch[1] : 'he'
 
   // Run the intl middleware
   const response = intlMiddleware(request)
