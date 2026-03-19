@@ -2,10 +2,11 @@
 
 import Link from "next/link"
 import { Code2, Github, Linkedin, Twitter } from "lucide-react"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 
 export function Footer() {
   const t = useTranslations('footer')
+  const locale = useLocale()
 
   const footerLinks = {
     services: [
@@ -34,7 +35,7 @@ export function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link href={`/${locale}`} className="flex items-center gap-2 group">
               <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                 <Code2 className="h-5 w-5" />
               </div>
@@ -124,10 +125,10 @@ export function Footer() {
             {t('bottom.copyright', { year: new Date().getFullYear() })}
           </p>
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
-            <Link href="/privacy" className="hover:text-foreground transition-colors">
+            <Link href={`/${locale}/privacy`} className="hover:text-foreground transition-colors">
               {t('bottom.privacy')}
             </Link>
-            <Link href="/terms" className="hover:text-foreground transition-colors">
+            <Link href={`/${locale}/terms`} className="hover:text-foreground transition-colors">
               {t('bottom.terms')}
             </Link>
           </div>

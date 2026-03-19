@@ -388,7 +388,7 @@ export function ProjectRequestForm() {
             </ul>
           </div>
           <Button asChild className="mt-8">
-            <a href="/">{t('success.backToHomepage')}</a>
+            <a href={`/${locale}`}>{t('success.backToHomepage')}</a>
           </Button>
         </div>
       </section>

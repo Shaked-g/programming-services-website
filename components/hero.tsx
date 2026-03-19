@@ -3,10 +3,11 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles, ShieldCheck, FileCheck, Lock, Award } from "lucide-react"
 import Link from "next/link"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 
 export function Hero() {
   const t = useTranslations('hero')
+  const locale = useLocale()
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
@@ -44,7 +45,7 @@ export function Hero() {
         {/* CTA Buttons */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button size="lg" className="w-full sm:w-auto group" asChild>
-            <Link href="/request">
+            <Link href={`/${locale}/request`}>
               {t('cta.primary')}
               <ArrowRight className="ms-2 h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
             </Link>

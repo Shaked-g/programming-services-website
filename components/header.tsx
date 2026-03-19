@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { LanguageToggle } from "@/components/language-toggle"
@@ -13,14 +13,16 @@ import { cn } from "@/lib/utils"
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const locale = useLocale()
   const pathname = usePathname()
   const t = useTranslations('navigation')
 
   const navItems = [
-    { label: t('services'), href: '/#services' },
-    { label: t('expertise'), href: '/#expertise' },
-    { label: t('process'), href: '/#process' },
-    { label: t('about'), href: '/#about' },
+    // Hash-only so the user stays on the current locale page.
+    { label: t('services'), href: '#services' },
+    { label: t('expertise'), href: '#expertise' },
+    { label: t('process'), href: '#process' },
+    { label: t('about'), href: '#about' },
   ]
 
   useEffect(() => {
@@ -51,7 +53,7 @@ export function Header() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
+          <Link href={`/${locale}`} className="flex items-center gap-2 group">
             <div className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground transition-transform group-hover:scale-105">
               <Code2 className="h-5 w-5" />
             </div>
@@ -78,7 +80,7 @@ export function Header() {
             <LanguageToggle />
             <ThemeToggle />
             <Button asChild className="hidden sm:inline-flex">
-              <Link href="/request">{t('startProject')}</Link>
+              <Link href={`/${locale}/request`}>{t('startProject')}</Link>
             </Button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -108,7 +110,7 @@ export function Header() {
               </Link>
             ))}
             <Button asChild className="mt-2">
-              <Link href="/request">{t('startProject')}</Link>
+              <Link href={`/${locale}/request`}>{t('startProject')}</Link>
             </Button>
           </nav>
         </div>

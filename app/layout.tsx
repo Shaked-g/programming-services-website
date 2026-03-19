@@ -49,7 +49,7 @@ export default async function RootLayout({
     <html lang={locale} dir={isRTL ? 'rtl' : 'ltr'} suppressHydrationWarning>
       <body className={`font-sans antialiased ${isRTL ? notoSansHebrew.className : inter.className}`}>
         <NextIntlClientProvider messages={messages}>
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
             {children}
             <Toaster />
             <VisitorTracker />
