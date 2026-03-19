@@ -18,6 +18,7 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] })
 const notoSansHebrew = Noto_Sans_Hebrew({ subsets: ["hebrew"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://academicassist.org"),
   title: "Academic Assist | Professional Assignment Help Services",
   description:
     "Expert academic assistance across disciplines. Programming assignments, humanities research, social work projects, and multi-disciplinary studies. Get help from subject matter experts.",
@@ -29,7 +30,34 @@ export const metadata: Metadata = {
     "homework help",
     "tutoring",
   ],
-    generator: 'v0.app'
+  openGraph: {
+    type: "website",
+    url: "https://academicassist.org",
+    siteName: "Academic Assist",
+    title: "Academic Assist | Professional Assignment Help Services",
+    description:
+      "Expert academic assistance across disciplines. Programming assignments, humanities research, social work projects, and multi-disciplinary studies.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Academic Assist - Professional Assignment Help Services",
+      },
+    ],
+    locale: "he_IL",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Academic Assist | Professional Assignment Help Services",
+    description:
+      "Expert academic assistance across disciplines. Programming assignments, humanities research, social work projects, and multi-disciplinary studies.",
+    images: ["/opengraph-image"],
+  },
+  alternates: {
+    canonical: "https://academicassist.org",
+  },
+  generator: 'v0.app'
 }
 
 export default async function RootLayout({
