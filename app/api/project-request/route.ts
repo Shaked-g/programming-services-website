@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getDatabase } from '@/lib/mongodb'
-import { sendSlackNotification, formatAssignmentRequestMessage } from '@/lib/slack'
+import { sendFormSubmitEmail } from '@/lib/formsubmit'
 import type { AssignmentRequestSubmission } from '@/lib/types'
 
 export async function POST(request: NextRequest) {
@@ -26,6 +26,7 @@ export async function POST(request: NextRequest) {
       phone,
       preferredContact,
       additionalNotes,
+      budget,
     } = body
 
     // Basic validation
@@ -66,6 +67,7 @@ export async function POST(request: NextRequest) {
       phone: phone || undefined,
       preferredContact: preferredContact || 'email',
       additionalNotes: additionalNotes || undefined,
+      budget: budget || 'Not specified',
       submittedAt: new Date(),
     }
 
@@ -77,29 +79,48 @@ export async function POST(request: NextRequest) {
       console.log('✅ Project request saved to MongoDB')
     } catch (dbError) {
       console.error('❌ Database error:', dbError)
-      // Continue even if DB fails - we still want to send Slack notification
+      // Continue even if DB fails - we still want to send email notification
     }
 
-    // Send Slack notification
+    // Send email notification (FormSubmit)
     try {
-      const slackMessage = formatAssignmentRequestMessage({
-        assignmentType,
-        assignmentTitle,
-        assignmentDescription,
-        subjectArea,
-        academicLevel,
-        name,
-        email,
-        university,
-        phone,
-        deadline,
-        academicExpertise: academicExpertise || [],
-        requiredSources: requiredSources || {},
+      await sendFormSubmitEmail({
+        formType: 'Assignment Request',
+        subject: `New Assignment Request from ${name}`,
+        origin: request.nextUrl.origin,
+        payload: {
+          assignmentType,
+          assignmentTitle,
+          assignmentDescription,
+          subjectArea: subjectArea || 'Not specified',
+          academicLevel,
+          specificRequirements: specificRequirements || 'Not specified',
+          hasExistingWork: hasExistingWork || 'Not specified',
+          citationStyle: citationStyle || 'Not specified',
+          academicExpertise: academicExpertise || [],
+          requiredSources: requiredSources || {},
+          deadline,
+          urgencyLevel: urgencyLevel || 'standard',
+          submissionDate: submissionDate || 'Not specified',
+          name,
+          email,
+          university: university || 'Not specified',
+          phone: phone || 'Not specified',
+          preferredContact: preferredContact || 'email',
+          additionalNotes: additionalNotes || 'Not specified',
+          budget: budget || 'Not specified',
+          submittedAt: new Date().toISOString(),
+        },
       })
-      await sendSlackNotification(slackMessage)
-    } catch (slackError) {
-      console.error('❌ Slack notification error:', slackError)
-      // Continue even if Slack fails - we still saved to DB
+    } catch (emailError) {
+      console.error('❌ FormSubmit email error:', emailError)
+      return NextResponse.json(
+        {
+          error:
+            "Request saved, but email delivery failed. Please activate FormSubmit from your inbox (or spam folder) and try again.",
+        },
+        { status: 502 },
+      )
     }
 
     return NextResponse.json(

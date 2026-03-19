@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, Phone, MapPin, Send, CheckCircle, Loader2 } from "lucide-react"
+import { Send, CheckCircle, Loader2 } from "lucide-react"
 import { toast } from "sonner"
 import { useTranslations } from "next-intl"
 
@@ -87,55 +87,9 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-12">
-          {/* Contact Info */}
-          <div className="lg:col-span-2 space-y-8">
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                  <Mail className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="font-medium">{t('info.email.title')}</p>
-                  <p className="text-muted-foreground text-sm">{t('info.email.value')}</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                  <Phone className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="font-medium">{t('info.phone.title')}</p>
-                  <p className="text-muted-foreground text-sm">{t('info.phone.value')}</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                  <MapPin className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="font-medium">{t('info.location.title')}</p>
-                  <p className="text-muted-foreground text-sm">{t('info.location.value')}</p>
-                  <p className="text-muted-foreground text-sm">{t('info.location.additional')}</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-6 border-t border-border">
-              <p className="font-medium mb-3">{t('process.title')}</p>
-              <ul className="space-y-3 text-sm text-muted-foreground">
-                {t.raw('process.steps').map((step: string, index: number) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-accent" />
-                    {step}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
+        <div className="max-w-3xl mx-auto">
           {/* Contact Form */}
-          <Card className="lg:col-span-3 border-border/50 bg-card/50">
+          <Card className="border-border/50 bg-card/50">
             <CardHeader>
               <CardTitle>{t('form.title')}</CardTitle>
               <CardDescription>{t('form.description')}</CardDescription>

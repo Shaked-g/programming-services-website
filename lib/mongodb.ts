@@ -1,7 +1,16 @@
 import { MongoClient, Db } from 'mongodb'
 
+function normalizeEnvValue(value: string | undefined): string | undefined {
+  if (!value) return undefined
+  const trimmed = value.trim()
+  if ((trimmed.startsWith('"') && trimmed.endsWith('"')) || (trimmed.startsWith("'") && trimmed.endsWith("'"))) {
+    return trimmed.slice(1, -1).trim()
+  }
+  return trimmed
+}
+
 // Default to local MongoDB if not specified
-const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017'
+const uri = normalizeEnvValue(process.env.MONGODB_URI) || 'mongodb://localhost:27017'
 const options = {
   ssl: true,
   tls: true,
@@ -38,5 +47,5 @@ export default clientPromise
 
 export async function getDatabase(): Promise<Db> {
   const client = await clientPromise
-  return client.db(process.env.MONGODB_DB_NAME || 'codecraft-labs')
+  return client.db(normalizeEnvValue(process.env.MONGODB_DB_NAME) || 'codecraft-labs')
 }

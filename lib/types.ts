@@ -29,5 +29,6 @@ export interface AssignmentRequestSubmission {
   phone?: string
   preferredContact: string
   additionalNotes?: string
+  budget?: string
   submittedAt: Date
 }

@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Sparkles } from "lucide-react"
+import { ArrowRight, Sparkles, ShieldCheck, FileCheck, Lock, Award } from "lucide-react"
 import Link from "next/link"
 import { useTranslations } from "next-intl"
 
@@ -65,19 +65,41 @@ export function Hero() {
           </Button>
         </div>
 
-        {/* Stats */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-          {[
-            { value: t('stats.projects.value'), label: t('stats.projects.label') },
-            { value: t('stats.satisfaction.value'), label: t('stats.satisfaction.label') },
-            { value: t('stats.clients.value'), label: t('stats.clients.label') },
-            { value: t('stats.support.value'), label: t('stats.support.label') },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold">{stat.value}</div>
-              <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
+        {/* Stats & Trust */}
+        <div className="mt-20 space-y-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            {[
+              { value: t('stats.projects.value'), label: t('stats.projects.label') },
+              { value: t('stats.satisfaction.value'), label: t('stats.satisfaction.label') },
+              { value: t('stats.clients.value'), label: t('stats.clients.label') },
+              { value: t('stats.support.value'), label: t('stats.support.label') },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <div className="text-3xl sm:text-4xl font-bold">{stat.value}</div>
+                <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Trust Badges Bar */}
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 py-8 border-y border-border/50 bg-secondary/20 backdrop-blur-sm rounded-2xl">
+            <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+              <FileCheck className="h-5 w-5 text-accent" />
+              <span>{t('trust.plagiarism')}</span>
             </div>
-          ))}
+            <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+              <Lock className="h-5 w-5 text-accent" />
+              <span>{t('trust.confidential')}</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+              <ShieldCheck className="h-5 w-5 text-accent" />
+              <span>{t('trust.standards')}</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+              <Award className="h-5 w-5 text-accent" />
+              <span>{t('trust.expert')}</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

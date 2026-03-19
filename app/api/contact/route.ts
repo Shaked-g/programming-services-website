@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getDatabase } from '@/lib/mongodb'
-import { sendSlackNotification, formatContactMessage } from '@/lib/slack'
+import { sendFormSubmitEmail } from '@/lib/formsubmit'
 import type { ContactSubmission } from '@/lib/types'
 
 export async function POST(request: NextRequest) {
@@ -45,24 +45,35 @@ export async function POST(request: NextRequest) {
       console.log('✅ Contact submission saved to MongoDB')
     } catch (dbError) {
       console.error('❌ Database error:', dbError)
-      // Continue even if DB fails - we still want to send Slack notification
+      // Continue even if DB fails - we still want to send email notification
     }
 
-    // Send Slack notification
+    // Send email notification (FormSubmit)
     try {
-      const slackMessage = formatContactMessage({
-        name,
-        email,
-        subject,
-        service,
-        deadline,
-        academicLevel,
-        message,
+      await sendFormSubmitEmail({
+        formType: 'Contact Inquiry',
+        subject: `New Contact Inquiry from ${name}`,
+        origin: request.nextUrl.origin,
+        payload: {
+          name,
+          email,
+          subject: subject || 'Not specified',
+          service: service || 'Not specified',
+          deadline: deadline || 'Not specified',
+          academicLevel: academicLevel || 'Not specified',
+          message,
+          submittedAt: new Date().toISOString(),
+        },
       })
-      await sendSlackNotification(slackMessage)
-    } catch (slackError) {
-      console.error('❌ Slack notification error:', slackError)
-      // Continue even if Slack fails - we still saved to DB
+    } catch (emailError) {
+      console.error('❌ FormSubmit email error:', emailError)
+      return NextResponse.json(
+        {
+          error:
+            "Message saved, but email delivery failed. Please activate FormSubmit from your inbox (or spam folder) and try again.",
+        },
+        { status: 502 },
+      )
     }
 
     return NextResponse.json(

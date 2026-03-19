@@ -10,7 +10,7 @@ A modern, responsive website for programming services built with Next.js 16, Typ
 - 📱 **Responsive Design** - Mobile-first approach
 - 🔄 **Real-time Updates** - Automatic deployments
 - 🗄️ **Database Integration** - MongoDB for form submissions
-- 📢 **Slack Notifications** - Optional Slack integration for form submissions
+- 📬 **Email Notifications** - Optional FormSubmit integration for form submissions
 
 ## Tech Stack
 
@@ -20,7 +20,7 @@ A modern, responsive website for programming services built with Next.js 16, Typ
 - **UI Components**: Radix UI
 - **Database**: MongoDB
 - **Internationalization**: next-intl
-- **Deployment**: Render (recommended) or GitHub Pages
+- **Deployment**: Vercel (recommended), Render, or GitHub Pages
 
 ## Getting Started
 
@@ -57,8 +57,8 @@ Edit `.env` with your configuration:
 MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/
 MONGODB_DB_NAME=your-database-name
 
-# Slack Integration (Optional)
-SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK
+# FormSubmit Integration (Optional but recommended)
+FORM_SUBMIT_EMAIL=you@example.com
 ```
 
 4. Run the development server:
@@ -70,7 +70,36 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 
 ## Deployment
 
-### Option 1: Render (Recommended)
+### Option 1: Vercel (Recommended)
+
+Vercel is the easiest option for Next.js projects and includes a generous free tier.
+
+#### Step 1: Push your code to GitHub
+
+Make sure your repository is on GitHub and up to date.
+
+#### Step 2: Import project into Vercel
+
+1. Go to [Vercel](https://vercel.com/) and sign in
+2. Click "Add New..." and select "Project"
+3. Import your GitHub repository
+4. Keep default settings (Vercel auto-detects Next.js)
+
+#### Step 3: Add environment variables
+
+In Vercel Project Settings -> Environment Variables, add:
+
+```
+MONGODB_URI=your-mongodb-atlas-connection-string
+MONGODB_DB_NAME=your-database-name
+FORM_SUBMIT_EMAIL=your-email@example.com
+```
+
+#### Step 4: Deploy
+
+Click "Deploy". Your app will be available at `https://your-project-name.vercel.app`.
+
+### Option 2: Render
 
 Render provides a complete platform for deploying full-stack applications with databases.
 
@@ -100,14 +129,14 @@ In your Render service settings, add these environment variables:
 ```
 MONGODB_URI=your-mongodb-atlas-connection-string
 MONGODB_DB_NAME=your-database-name
-SLACK_WEBHOOK_URL=your-slack-webhook-url (optional)
+FORM_SUBMIT_EMAIL=your-email@example.com
 ```
 
 #### Step 4: Deploy
 
 Render will automatically build and deploy your application. Your site will be available at `https://your-service-name.onrender.com`.
 
-### Option 2: GitHub Pages
+### Option 3: GitHub Pages
 
 ⚠️ **Note**: GitHub Pages only supports static sites. Since this app uses API routes and MongoDB, you'll need to either:
 
@@ -144,7 +173,7 @@ gh-pages -d out
 |----------|-------------|----------|
 | `MONGODB_URI` | MongoDB connection string | Yes |
 | `MONGODB_DB_NAME` | Database name (defaults to 'codecraft-labs') | No |
-| `SLACK_WEBHOOK_URL` | Slack webhook for form notifications | No |
+| `FORM_SUBMIT_EMAIL` | Destination email for FormSubmit notifications | No |
 
 ## Project Structure
 

@@ -2,6 +2,8 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, JetBrains_Mono, Noto_Sans_Hebrew } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { VisitorTracker } from "@/components/visitor-tracker"
+import { WhatsAppButton } from "@/components/whatsapp-button"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/sonner"
 import { NextIntlClientProvider } from 'next-intl'
@@ -50,6 +52,8 @@ export default async function RootLayout({
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
             {children}
             <Toaster />
+            <VisitorTracker />
+            <WhatsAppButton />
           </ThemeProvider>
         </NextIntlClientProvider>
         <Analytics />

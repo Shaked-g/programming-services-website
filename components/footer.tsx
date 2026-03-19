@@ -24,7 +24,7 @@ export function Footer() {
       { label: t('links.company.about'), href: "#about" },
       { label: t('links.company.process'), href: "#process" },
       { label: t('links.company.contact'), href: "#contact" },
-      { label: t('links.company.faq'), href: "#" },
+      { label: t('links.company.faq'), href: "#faq" },
     ],
   }
 

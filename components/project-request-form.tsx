@@ -57,6 +57,7 @@ type FormData = {
   phone: string
   preferredContact: string
   additionalNotes: string
+  budget: string
 }
 
 export function ProjectRequestForm() {
@@ -70,7 +71,14 @@ export function ProjectRequestForm() {
     { id: 2, name: t('steps.assignmentDetails'), icon: FileText },
     { id: 3, name: t('steps.academicRequirements'), icon: Code2 },
     { id: 4, name: t('steps.timelineLevel'), icon: Clock },
-    { id: 5, name: t('steps.contactInfo'), icon: Send },
+    { id: 5, name: t('contactInfo.title'), icon: Send },
+  ]
+
+  const budgetOptions = [
+    { id: "low", label: t('timelineLevel.budgets.low') },
+    { id: "mid", label: t('timelineLevel.budgets.mid') },
+    { id: "high", label: t('timelineLevel.budgets.high') },
+    { id: "very-high", label: t('timelineLevel.budgets.very-high') },
   ]
 
   const academicExpertise = [
@@ -240,6 +248,7 @@ export function ProjectRequestForm() {
     phone: "",
     preferredContact: "email",
     additionalNotes: "",
+    budget: "",
   })
 
   const updateFormData = (field: keyof FormData, value: FormData[keyof FormData]) => {
@@ -323,8 +332,21 @@ export function ProjectRequestForm() {
     }
   }
 
-  const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, 5))
-  const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 1))
+  const nextStep = () => {
+    setCurrentStep((prev) => {
+      // For programming assignments we skip the "Academic Requirements" step.
+      if (prev === 2 && formData.assignmentType === "programming") return 4
+      return Math.min(prev + 1, 5)
+    })
+  }
+
+  const prevStep = () => {
+    setCurrentStep((prev) => {
+      // If we skipped step 3, allow going back to step 2.
+      if (prev === 4 && formData.assignmentType === "programming") return 2
+      return Math.max(prev - 1, 1)
+    })
+  }
 
   if (isSubmitted) {
     return (
@@ -337,22 +359,27 @@ export function ProjectRequestForm() {
           <p className="text-lg text-muted-foreground mb-8">
             {t('success.message')}
           </p>
-          <div className="p-6 rounded-xl bg-card border border-border text-left space-y-4">
+          <div
+            className={cn(
+              "p-6 rounded-xl bg-card border border-border space-y-4",
+              isRTL ? "text-right" : "text-left",
+            )}
+          >
             <h3 className="font-semibold">{t('success.whatHappensNext')}</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-start gap-3">
+              <li className={cn("flex items-start gap-3", isRTL && "flex-row-reverse justify-end")}>
                 <Check className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                 <span>{t('success.steps.review')}</span>
               </li>
-              <li className="flex items-start gap-3">
+              <li className={cn("flex items-start gap-3", isRTL && "flex-row-reverse justify-end")}>
                 <Check className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                 <span>{t('success.steps.match')}</span>
               </li>
-              <li className="flex items-start gap-3">
+              <li className={cn("flex items-start gap-3", isRTL && "flex-row-reverse justify-end")}>
                 <Check className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                 <span>{t('success.steps.timeline')}</span>
               </li>
-              <li className="flex items-start gap-3">
+              <li className={cn("flex items-start gap-3", isRTL && "flex-row-reverse justify-end")}>
                 <Check className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                 <span>{t('success.steps.begin')}</span>
               </li>
@@ -571,68 +598,90 @@ export function ProjectRequestForm() {
 
               {/* Step 3: Academic Requirements */}
               {currentStep === 3 && (
-                <div className="space-y-6">
-                  <div>
-                    <h2 className="text-xl font-semibold mb-2">{t('academicRequirements.title')}</h2>
-                    <p className="text-muted-foreground text-sm">
-                      {t('academicRequirements.subtitle')}
-                    </p>
-                  </div>
-                  <div className="space-y-6">
-                    <div className="space-y-3">
-                      <Label>{t('academicRequirements.expertiseQuestion')}</Label>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                        {academicExpertise.map((academic) => (
-                          <button
-                            key={academic.id}
-                            type="button"
-                            onClick={() => toggleAcademicExpertise(academic.id)}
-                            className={cn(
-                              "flex items-center gap-3 p-3 rounded-lg border text-left text-sm transition-all",
-                              formData.academicExpertise.includes(academic.id)
-                                ? "border-accent bg-accent/10"
-                                : "border-border hover:border-accent/50",
-                            )}
-                          >
-                            <academic.icon
-                              className={cn(
-                                "h-4 w-4",
-                                formData.academicExpertise.includes(academic.id) ? "text-accent" : "text-muted-foreground",
-                              )}
-                            />
-                            <span>{academic.label}</span>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
+                <>
+                  {formData.assignmentType === "programming" ? (
                     <div className="space-y-4">
-                      <Label>{t('academicRequirements.sourcesQuestion')}</Label>
-                      {academicRequirements.map((requirement) => (
-                        <div key={requirement.category} className="space-y-2">
-                          <p className="text-sm text-muted-foreground">{requirement.category}</p>
-                          <div className="flex flex-wrap gap-2">
-                            {requirement.options.map((option) => (
+                      <div>
+                        <h2 className="text-xl font-semibold mb-2">{t('academicRequirements.title')}</h2>
+                        <p className="text-muted-foreground text-sm">
+                          {/* For programming assignments we keep this step minimal so you can submit faster.
+                              No extra academic formatting or citation details are required here. */}
+                          {t('academicRequirements.subtitle')}
+                        </p>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        {/* Keep instructions minimal for programming-focused requests */}
+                        For programming assignments you don&apos;t need to choose citation styles or academic sources here.
+                        You can simply click &quot;Next&quot; to continue — we&apos;ll clarify any technical details with you later if needed.
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="space-y-6">
+                      <div>
+                        <h2 className="text-xl font-semibold mb-2">{t('academicRequirements.title')}</h2>
+                        <p className="text-muted-foreground text-sm">
+                          {t('academicRequirements.subtitle')}
+                        </p>
+                      </div>
+                      <div className="space-y-6">
+                        <div className="space-y-3">
+                          <Label>{t('academicRequirements.expertiseQuestion')}</Label>
+                          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            {academicExpertise.map((academic) => (
                               <button
-                                key={option.key}
+                                key={academic.id}
                                 type="button"
-                                onClick={() => toggleSourceOption(requirement.category, option.key)}
+                                onClick={() => toggleAcademicExpertise(academic.id)}
                                 className={cn(
-                                  "px-3 py-1.5 rounded-full border text-sm transition-all",
-                                  (formData.requiredSources[requirement.category] || []).includes(option.key)
-                                    ? "border-accent bg-accent/10 text-accent"
+                                  "flex items-center gap-3 p-3 rounded-lg border text-left text-sm transition-all",
+                                  formData.academicExpertise.includes(academic.id)
+                                    ? "border-accent bg-accent/10"
                                     : "border-border hover:border-accent/50",
                                 )}
                               >
-                                {option.label}
+                                <academic.icon
+                                  className={cn(
+                                    "h-4 w-4",
+                                    formData.academicExpertise.includes(academic.id)
+                                      ? "text-accent"
+                                      : "text-muted-foreground",
+                                  )}
+                                />
+                                <span>{academic.label}</span>
                               </button>
                             ))}
                           </div>
                         </div>
-                      ))}
+
+                        <div className="space-y-4">
+                          <Label>{t('academicRequirements.sourcesQuestion')}</Label>
+                          {academicRequirements.map((requirement) => (
+                            <div key={requirement.category} className="space-y-2">
+                              <p className="text-sm text-muted-foreground">{requirement.category}</p>
+                              <div className="flex flex-wrap gap-2">
+                                {requirement.options.map((option) => (
+                                  <button
+                                    key={option.key}
+                                    type="button"
+                                    onClick={() => toggleSourceOption(requirement.category, option.key)}
+                                    className={cn(
+                                      "px-3 py-1.5 rounded-full border text-sm transition-all",
+                                      (formData.requiredSources[requirement.category] || []).includes(option.key)
+                                        ? "border-accent bg-accent/10 text-accent"
+                                        : "border-border hover:border-accent/50",
+                                    )}
+                                  >
+                                    {option.label}
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  )}
+                </>
               )}
 
               {/* Step 4: Timeline & Academic Level */}
@@ -690,6 +739,30 @@ export function ProjectRequestForm() {
                           >
                             <p className="font-medium">{option.label}</p>
                             <p className="text-xs text-muted-foreground mt-1">{option.description}</p>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <Label className="flex items-center gap-2">
+                        <DollarSign className="h-4 w-4 text-muted-foreground" />
+                        {t('timelineLevel.budgetLabel')}
+                      </Label>
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        {budgetOptions.map((option) => (
+                          <button
+                            key={option.id}
+                            type="button"
+                            onClick={() => updateFormData("budget", option.id)}
+                            className={cn(
+                              "p-3 rounded-lg border text-center transition-all",
+                              formData.budget === option.id
+                                ? "border-accent bg-accent/10 text-accent font-medium"
+                                : "border-border hover:border-accent/50 text-sm",
+                            )}
+                          >
+                            {option.label}
                           </button>
                         ))}
                       </div>

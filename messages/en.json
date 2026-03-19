@@ -35,6 +35,12 @@
         "label": "Academic Support"
       }
     },
+    "trust": {
+      "plagiarism": "100% Plagiarism-Free",
+      "confidential": "100% Confidential",
+      "standards": "Academic Standards",
+      "expert": "Expert Support"
+    },
     "disclaimer": {
       "title": "Academic Integrity Notice:",
       "message": "Our services are intended for learning assistance only. Do not submit completed assignments as your own work. Use our help to understand concepts and improve your skills."
@@ -257,6 +263,68 @@
         "begin": "Begin academic support as soon as you approve"
       },
       "backToHomepage": "Back to Homepage"
+    },
+    "timelineLevel": {
+      "title": "Deadline & Academic Level",
+      "subtitle": "Help us understand your timeline and academic requirements",
+      "deadlineLabel": "When is the assignment due? *",
+      "academicLevelLabel": "Academic Level *",
+      "budgetLabel": "Budget Range (Optional)",
+      "submissionDateLabel": "Exact Submission Date",
+      "budgets": {
+        "low": "$30 - $60",
+        "mid": "$60 - $120",
+        "high": "$120 - $250",
+        "very-high": "$250+"
+      },
+      "deadlines": {
+        "urgent-24h": {
+          "label": "Within 24 hours",
+          "description": "Urgent assignment help"
+        },
+        "urgent-3days": {
+          "label": "Within 3 days",
+          "description": "Very urgent deadline"
+        },
+        "week": {
+          "label": "Within a week",
+          "description": "Short deadline"
+        },
+        "2-weeks": {
+          "label": "Within 2 weeks",
+          "description": "Standard deadline"
+        },
+        "month": {
+          "label": "Within a month",
+          "description": "Longer deadline"
+        },
+        "flexible": {
+          "label": "Flexible",
+          "description": "No immediate deadline"
+        }
+      },
+      "academicLevels": {
+        "high-school": {
+          "label": "High School",
+          "description": "High school level education"
+        },
+        "undergraduate": {
+          "label": "Undergraduate",
+          "description": "Bachelor degree level"
+        },
+        "graduate": {
+          "label": "Graduate",
+          "description": "Master degree level"
+        },
+        "phd": {
+          "label": "PhD",
+          "description": "Doctoral research level"
+        },
+        "professional": {
+          "label": "Professional",
+          "description": "Professional certification"
+        }
+      }
     }
   },
   "footer": {
@@ -300,6 +368,35 @@
   "language": {
     "en": "English",
     "he": "עברית"
+  },
+  "faq": {
+    "section": {
+      "badge": "Common Questions",
+      "title": "Everything you need to know",
+      "subtitle": "Find answers to the most common questions students ask about our services."
+    },
+    "items": {
+      "plagiarism": {
+        "question": "Is the work original and plagiarism-free?",
+        "answer": "Absolutely. All work is created from scratch by our subject matter experts. We maintain strict academic integrity standards and provide original, well-researched content tailored to your specific assignment."
+      },
+      "confidentiality": {
+        "question": "Is my information kept confidential?",
+        "answer": "Yes, your privacy is our top priority. We never share your personal details, email, or assignment information with third parties. All communication is strictly confidential."
+      },
+      "pricing": {
+        "question": "How do you determine the price?",
+        "answer": "Pricing depends on several factors: the complexity of the assignment, the academic level (Undergraduate vs PhD), and the deadline. Urgent tasks (within 24-48h) usually have higher rates. We provide a free quote once we review your request."
+      },
+      "revisions": {
+        "question": "What if I need revisions?",
+        "answer": "We offer free revisions if the work doesn't fully meet the initial requirements you provided. Your satisfaction is important to us, and we'll work with you until you're happy with the result."
+      },
+      "deadlines": {
+        "question": "Can you handle urgent deadlines?",
+        "answer": "Yes, we can often handle urgent assignments with as little as 24-48 hours notice. Please mention the exact deadline in the request form so we can prioritize your case."
+      }
+    }
   },
   "testimonials": {
     "section": {
