@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
       // Continue even if DB fails - we still want to send email notification
     }
 
-    // Send email notification (FormSubmit)
+    // Send email notification (Resend when configured)
     try {
       await sendFormSubmitEmail({
         formType: 'Assignment Request',
@@ -113,11 +113,11 @@ export async function POST(request: NextRequest) {
         },
       })
     } catch (emailError) {
-      console.error('❌ FormSubmit email error:', emailError)
+      console.error('❌ Email notification error:', emailError)
       return NextResponse.json(
         {
           error:
-            "Request saved, but email delivery failed. Please activate FormSubmit from your inbox (or spam folder) and try again.",
+            "Request saved, but email delivery failed. Please check your email provider configuration and try again.",
         },
         { status: 502 },
       )
