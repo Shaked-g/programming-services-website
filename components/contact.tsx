@@ -73,7 +73,7 @@ export function Contact() {
   return (
     <section id="contact" className="py-24 sm:py-32 relative overflow-hidden">
       {/* Background effect */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent/5 blur-[100px] rounded-full" />
+      <div className="hidden sm:block absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent/5 blur-[100px] rounded-full" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

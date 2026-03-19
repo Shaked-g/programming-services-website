@@ -77,10 +77,11 @@ export function ProjectRequestForm() {
   ]
 
   const budgetOptions = [
-    { id: "low", label: t('timelineLevel.budgets.low') },
-    { id: "mid", label: t('timelineLevel.budgets.mid') },
-    { id: "high", label: t('timelineLevel.budgets.high') },
-    { id: "very-high", label: t('timelineLevel.budgets.very-high') },
+    { id: "300-500", label: "300-500" },
+    { id: "500-700", label: "500-700" },
+    { id: "700-900", label: "700-900" },
+    { id: "1000-2000", label: "1000-2000" },
+    { id: "2000+", label: "2000+" },
   ]
 
   const academicExpertise = [
@@ -751,7 +752,7 @@ export function ProjectRequestForm() {
                         <DollarSign className="h-4 w-4 text-muted-foreground" />
                         {t('timelineLevel.budgetLabel')}
                       </Label>
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
                         {budgetOptions.map((option) => (
                           <button
                             key={option.id}

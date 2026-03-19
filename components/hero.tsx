@@ -13,9 +13,9 @@ export function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-accent/10 blur-[120px] animate-pulse-glow" />
+        <div className="hidden sm:block absolute top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-accent/10 blur-[120px] animate-pulse-glow" />
         <div
-          className="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] rounded-full bg-accent/5 blur-[100px] animate-pulse-glow"
+          className="hidden sm:block absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] rounded-full bg-accent/5 blur-[100px] animate-pulse-glow"
           style={{ animationDelay: "1.5s" }}
         />
         {/* Grid pattern */}
